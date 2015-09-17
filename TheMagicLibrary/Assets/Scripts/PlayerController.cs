@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 
 	public GameObject gameCamera;
-	public GameObject healthbar;
-	public GameObject gameOverPanel;
-    public GameObject invisiblePlatform;
+	//public GameObject healthbar;
+	//public GameObject gameOverPanel;
 
 	Vector3 velocity = Vector3.zero;
 	public float speed = 5;
@@ -60,22 +59,22 @@ public class PlayerController : MonoBehaviour {
 
 				velocity.x = -speed;
 				if (_controller.isGrounded) {
-					_animator.setAnimation ("Run");
+					//_animator.setAnimation ("Run");
 				}
-				_animator.setFacing ("Left");
+				//_animator.setFacing ("Left");
 
 			} else if (Input.GetAxis ("Horizontal") > 0) {
 
 				velocity.x = speed;
 				if (_controller.isGrounded) {
-					_animator.setAnimation ("Run");
+					//_animator.setAnimation ("Run");
 				}
-				_animator.setFacing ("Right");
+				//_animator.setFacing ("Right");
 
 			} else {
 
 				if (_controller.isGrounded) {
-					_animator.setAnimation ("Idle");
+					//_animator.setAnimation ("Idle");
 				}
 
 			}
@@ -83,23 +82,13 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetAxis ("Jump") > 0 && _controller.isGrounded) {
 
 				velocity.y = Mathf.Sqrt (2f * spring * -gravity);
-				_animator.setAnimation ("Jump");
+				//_animator.setAnimation ("Jump");
 
 			}
 		}
 
 		velocity.y += gravity;
 		_controller.move (velocity * Time.deltaTime);
-
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            invisiblePlatform.SetActive(true);
-        }
-        else
-        {
-            invisiblePlatform.SetActive(false);
-
-        }
 
     }
 
@@ -121,8 +110,8 @@ public class PlayerController : MonoBehaviour {
 	private void PlayerDeath(){
 
 		isAlive = false;
-		_animator.setAnimation("Death");
-		gameOverPanel.SetActive (true);
+		//_animator.setAnimation("Death");
+		//gameOverPanel.SetActive (true);
 
 	}
 
@@ -132,7 +121,7 @@ public class PlayerController : MonoBehaviour {
 
 		float normalizedHealth = (float)currentHealth / (float)health;
 
-		healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (normalizedHealth * 256, 32);
+		//healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (normalizedHealth * 256, 32);
 		if (currentHealth <= 0) {
 			PlayerDeath ();
 		}
@@ -141,9 +130,9 @@ public class PlayerController : MonoBehaviour {
 	private void PlayerFallDeath() {
 
 		currentHealth = 0;
-		healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0 , 32);
+		//healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0 , 32);
 		gameCamera.gameObject.GetComponent<CameraFollow2D>().stopCameraFollow();
-		gameOverPanel.SetActive (true);
+		//gameOverPanel.SetActive (true);
 
 	}
 }
