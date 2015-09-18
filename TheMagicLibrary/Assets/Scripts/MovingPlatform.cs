@@ -10,13 +10,14 @@ public class MovingPlatform : MonoBehaviour {
 	private float timer = 0;
 	private Vector3 startPosition = Vector3.zero;
 
-	void Start () {
-		
+	void Start ()
+    {
 		startPosition = this.gameObject.transform.position;
 		endPosition = endPosition + startPosition;
 		
 		float distance = Vector3.Distance (startPosition, endPosition);
-		if (distance != 0) {
+		if (distance != 0)
+        {
 			speed = speed/distance;
 		}
 	}
@@ -29,15 +30,20 @@ public class MovingPlatform : MonoBehaviour {
 
 		timer += Time.deltaTime * speed;
 
-		if (outgoing) {
+		if (outgoing)
+        {
 			this.transform.position = Vector3.Lerp (startPosition, endPosition, timer);
-			if(timer > 1) {
+			if(timer > 1)
+            {
 				timer = 0;
 				outgoing = false;
 			}
-		} else {
+		}
+        else
+        {
 			this.transform.position = Vector3.Lerp (endPosition, startPosition, timer);
-			if(timer > 1){
+			if(timer > 1)
+            {
 				timer = 0;
 				outgoing = true;
 			}
@@ -46,8 +52,8 @@ public class MovingPlatform : MonoBehaviour {
 	
 	}
 
-	void OnDrawGizmos () {
-
+	void OnDrawGizmos ()
+    {
 		Gizmos.color = Color.red;
 		Gizmos.DrawLine (this.transform.position,endPosition + this.transform.position);
 	}

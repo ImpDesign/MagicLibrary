@@ -49,7 +49,8 @@
      <Compile Include="Assets\Scripts\CameraFollow2D.cs" />
      <Compile Include="Assets\Scripts\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\InvisiblePlatform.cs" />
+     <Compile Include="Assets\Scripts\InvisiblePlatformController.cs" />
+     <Compile Include="Assets\Scripts\InvisiblePlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\LoadLevelUtil.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
