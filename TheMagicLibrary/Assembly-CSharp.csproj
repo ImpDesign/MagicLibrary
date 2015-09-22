@@ -49,11 +49,13 @@
      <Compile Include="Assets\Scripts\CameraFollow2D.cs" />
      <Compile Include="Assets\Scripts\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\InvisibleOneWayGizmo.cs" />
      <Compile Include="Assets\Scripts\InvisiblePlatformController.cs" />
      <Compile Include="Assets\Scripts\InvisiblePlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\LoadLevelUtil.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\TrickPlatformGizmo.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

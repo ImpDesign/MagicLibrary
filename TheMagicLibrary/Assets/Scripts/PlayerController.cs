@@ -7,7 +7,8 @@ using System.Threading;
 public class PlayerController : MonoBehaviour {
 
 	public GameObject gameCamera;
-    public GameObject platformList;
+    public GameObject invisiblePlatformList;
+    public GameObject trickPlatformList;
     public GameObject deathBlur;
 	//public GameObject healthbar;
 	//public GameObject gameOverPanel;
@@ -29,15 +30,10 @@ public class PlayerController : MonoBehaviour {
     private bool canReveal = false;
     private bool cameraDerp = true;
 
-    struct spells
-    {
-        public bool doublejump;
-        public bool firebolt;
-        public bool reveal;
-        public bool light;
-    }
-
-    spells spellbook;
+    public bool doubleJump = false;
+    public bool fireBolt = false;
+    public bool revealSpell = false;
+    public bool lightSpell = false;
 
 	// Use this for initialization
 	void Start () {
@@ -46,12 +42,6 @@ public class PlayerController : MonoBehaviour {
 		_animator = gameObject.GetComponent<AnimationController2D>();
 		currentHealth = health;
         cameraDerp = true;
-
-        spellbook.doublejump = false;
-        spellbook.firebolt = false;
-        spellbook.reveal = false;
-        spellbook.light = false;
-
         StartCoroutine("FadeInSequence");
 	}
 	
@@ -86,7 +76,7 @@ public class PlayerController : MonoBehaviour {
             if(_controller.isGrounded)
             {
                 canJump = true;
-                if (spellbook.doublejump)
+                if (doubleJump)
                 {
                     canDoubleJump = true;
                 }
@@ -117,7 +107,7 @@ public class PlayerController : MonoBehaviour {
 				if (_controller.isGrounded)
                 {
                     //_animator.setAnimation ("Idle");
-                    if (spellbook.reveal) { canReveal = true; }
+                    if (revealSpell) { canReveal = true; }
 				}
 			}
 
@@ -136,18 +126,25 @@ public class PlayerController : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.LeftControl) && canReveal)
             {
-                foreach (SpriteRenderer s in platformList.GetComponentsInChildren<SpriteRenderer>())
+                foreach (SpriteRenderer s in invisiblePlatformList.GetComponentsInChildren<SpriteRenderer>())
                 {
                     s.enabled = true;
+                }
+                foreach (SpriteRenderer s in trickPlatformList.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    s.enabled = false;
                 }
             }
             else
             {
-                foreach (SpriteRenderer s in platformList.GetComponentsInChildren<SpriteRenderer>())
+                foreach (SpriteRenderer s in invisiblePlatformList.GetComponentsInChildren<SpriteRenderer>())
                 {
                     s.enabled = false;
                 }
-
+                foreach (SpriteRenderer s in trickPlatformList.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    s.enabled = true;
+                }
             }
         }
 
@@ -162,23 +159,6 @@ public class PlayerController : MonoBehaviour {
         {
 			PlayerFallDeath ();
 		} 
-        else if (col.tag == "DoubleJump")
-        {
-            spellbook.doublejump = true;
-        }
-        else if (col.tag == "FireBolt")
-        {
-            spellbook.firebolt = true;
-        }
-        else if (col.tag == "Reveal")
-        {
-            spellbook.reveal = true;
-        }
-        else if (col.tag == "Light")
-        {
-            spellbook.light = true;
-        }
-
 	}
 
 	private void PlayerDeath()
