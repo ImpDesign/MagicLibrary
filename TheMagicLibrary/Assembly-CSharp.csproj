@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\AnimationController2D.cs" />
      <Compile Include="Assets\Scripts\CameraFollow2D.cs" />
      <Compile Include="Assets\Scripts\CharacterController2D.cs" />
+     <Compile Include="Assets\Scripts\FogController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\InvisibleOneWayGizmo.cs" />
      <Compile Include="Assets\Scripts\InvisiblePlatformController.cs" />
