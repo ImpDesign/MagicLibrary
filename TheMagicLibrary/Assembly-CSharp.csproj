@@ -50,13 +50,18 @@
      <Compile Include="Assets\Scripts\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\FogController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\InvisibleMovingPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\InvisibleOneWayGizmo.cs" />
      <Compile Include="Assets\Scripts\InvisiblePlatformController.cs" />
      <Compile Include="Assets\Scripts\InvisiblePlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\LightScript.cs" />
      <Compile Include="Assets\Scripts\LoadLevelUtil.cs" />
+     <Compile Include="Assets\Scripts\MoveProjectile.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\TrickMovingPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\TrickPlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\WeaponScript.cs" />
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>

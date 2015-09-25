@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour {
 	private AnimationController2D _animator;
 
 	private int currentHealth = 0;
-	private bool isAlive = true;
+    private float fireTime = 0;
+    private int direction = 1;
+    private bool isAlive = true;
     private bool canJump = false;
     private bool canDoubleJump = false;
     private bool canReveal = false;
@@ -35,8 +37,13 @@ public class PlayerController : MonoBehaviour {
     public bool revealSpell = false;
     public bool lightSpell = false;
 
-	// Use this for initialization
-	void Start () {
+    private GameObject light1;
+    private GameObject light2;
+    private GameObject newLight;
+    private int oldLight = 2;
+
+    // Use this for initialization
+    void Start () {
 
 		_controller = gameObject.GetComponent<CharacterController2D>();
 		_animator = gameObject.GetComponent<AnimationController2D>();
@@ -48,14 +55,17 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        //Used to start Camera2D Follow script once the level is restart
         if(cameraDerp)
         {
             gameCamera.gameObject.GetComponent<CameraFollow2D>().startCameraFollow();
             cameraDerp = false;
         }
 
+        //Get the last velocity the player had
 		velocity =  _controller.velocity;
 
+        //Moving platform exception
 		if (_controller.isGrounded && (_controller.ground != null) && (_controller.ground.tag == "MovingPlatform"))
         {
 			this.transform.parent = _controller.ground.transform;
@@ -71,8 +81,10 @@ public class PlayerController : MonoBehaviour {
 
 		velocity.x = 0;
 
+        //If the player is still alive, do everything here
 		if (isAlive) {
 
+            //If you need to reset some variables when the player is grounded, do it here
             if(_controller.isGrounded)
             {
                 canJump = true;
@@ -82,6 +94,7 @@ public class PlayerController : MonoBehaviour {
                 }
             }
 
+            //Running left
 			if (Input.GetAxis ("Horizontal") < 0) {
 
 				velocity.x = -speed;
@@ -91,7 +104,9 @@ public class PlayerController : MonoBehaviour {
 				}
                 //_animator.setFacing ("Left");
                 canReveal = false;
+                direction = -1;
 			}
+            //Running right
             else if (Input.GetAxis ("Horizontal") > 0)
             {
 				velocity.x = speed;
@@ -101,6 +116,7 @@ public class PlayerController : MonoBehaviour {
 				}
                 //_animator.setFacing ("Right");
                 canReveal = false;
+                direction = 1;
 			}
             else
             {
@@ -110,7 +126,7 @@ public class PlayerController : MonoBehaviour {
                     if (revealSpell) { canReveal = true; }
 				}
 			}
-
+            //When jumping
 			if (Input.GetKeyDown(KeyCode.Space) && (canJump||canDoubleJump))
             {
 				velocity.y = Mathf.Sqrt (2f * spring * -gravity);
@@ -123,7 +139,7 @@ public class PlayerController : MonoBehaviour {
                 canJump = false;
                 canReveal = false;
 			}
-
+            //Reveal Spell
             if (Input.GetKey(KeyCode.LeftControl) && canReveal)
             {
                 foreach (SpriteRenderer s in invisiblePlatformList.GetComponentsInChildren<SpriteRenderer>())
@@ -145,6 +161,32 @@ public class PlayerController : MonoBehaviour {
                 {
                     s.enabled = true;
                 }
+            }
+            //For Light Spell
+            if (Input.GetKey(KeyCode.LeftAlt) && lightSpell)
+            {
+                fireTime += Time.deltaTime;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftAlt) && lightSpell)
+            {
+                LightScript light = GetComponent<LightScript>();
+                if (light != null)
+                {
+                    newLight = light.Attack(fireTime, direction);
+                    if (oldLight == 1)
+                    {
+                        Destroy(light1);
+                        light1 = newLight;
+                        oldLight = 2;
+                    }
+                    else
+                    {
+                        Destroy(light2);
+                        light2 = newLight;
+                        oldLight = 1;
+                    }
+                }
+                fireTime = 0;
             }
         }
 
