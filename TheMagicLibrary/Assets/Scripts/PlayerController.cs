@@ -68,8 +68,15 @@ public class PlayerController : MonoBehaviour {
         //Moving platform exception
 		if (_controller.isGrounded && (_controller.ground != null) && (_controller.ground.tag == "MovingPlatform"))
         {
+            
 			this.transform.parent = _controller.ground.transform;
-		} 
+            //Colapsing platform
+            if (_controller.ground.GetComponent<ColapsingPlatform>() != null)
+            {
+                _controller.ground.GetComponent<ColapsingPlatform>().set = true;
+            }
+            
+        } 
 		else
         {
 
@@ -78,8 +85,21 @@ public class PlayerController : MonoBehaviour {
 				this.transform.parent = null;
 			}
 		}
+        /*/Colapsing platform exception
+        if (_controller.isGrounded && (_controller.ground != null) && (_controller.ground.tag == "ColapsingPlatform"))
+        {
+            this.transform.parent = _controller.ground.transform;
+        }
+        else
+        {
 
-		velocity.x = 0;
+            if (this.transform.parent != null)
+            {
+                this.transform.parent = null;
+            }
+        }*/
+
+        velocity.x = 0;
 
         //If the player is still alive, do everything here
 		if (isAlive) {
@@ -195,15 +215,25 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-	void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-		if (col.tag == "KillZ")
-        {
-			PlayerFallDeath ();
-		} 
-	}
 
-	private void PlayerDeath()
+        if (col.tag == "KillZ")
+        {
+
+            PlayerFallDeath();
+
+        }
+        else if (col.tag == "Damaging")
+        {
+
+            PlayerDamage(25);
+
+        }
+
+    }
+
+    private void PlayerDeath()
     {
 
 		isAlive = false;
