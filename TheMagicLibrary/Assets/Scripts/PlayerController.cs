@@ -175,7 +175,10 @@ public class PlayerController : MonoBehaviour {
             {
                 foreach (SpriteRenderer s in invisiblePlatformList.GetComponentsInChildren<SpriteRenderer>())
                 {
-                    s.enabled = false;
+                    if(s.gameObject != this.gameObject)
+                    {
+                        s.enabled = false;
+                    }
                 }
                 foreach (SpriteRenderer s in trickPlatformList.GetComponentsInChildren<SpriteRenderer>())
                 {
