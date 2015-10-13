@@ -15,7 +15,11 @@ public class PlayerController : MonoBehaviour {
 	public float speed = 5;
 	public float gravity = -1;
 	public float spring = 100;
+    public float poisonRate = 2f;
 	public int health = 100;
+    public int poisonDamage = 1;
+    public int spiderDamage = 25;
+    public int platformDamage = 10;
     public bool doubleJump = false;
     public bool fireBolt = false;
     public bool revealSpell = false;
@@ -26,8 +30,10 @@ public class PlayerController : MonoBehaviour {
 	private int currentHealth = 0;
     private float fireTime = 0;
     private float pushBackTime = 0;
+    private float poisonTimer = 0;
     private int direction = 1;
     private bool isAlive = true;
+    private bool isPoisoned = false;
     private bool canJump = false;
     private bool canDoubleJump = false;
     private bool canReveal = false;
@@ -207,7 +213,7 @@ public class PlayerController : MonoBehaviour {
                 bolt.Attack(direction);
             }
         }
-
+        //Pushback for harmful entities
         if(pushBackTime > 0)
         {
             velocity.x += 8 * (-direction);
@@ -215,7 +221,16 @@ public class PlayerController : MonoBehaviour {
         }
 		velocity.y += gravity;
 		_controller.move (velocity * Time.deltaTime);
-
+        //Posion script
+        if(isPoisoned)
+        {
+            if(poisonTimer <= 0)
+            {
+                PlayerDamage(poisonDamage);
+                poisonTimer = poisonRate;
+            }
+            poisonTimer -= Time.deltaTime;
+        }
     }
 
     //Used for Queen Spiders
@@ -241,13 +256,27 @@ public class PlayerController : MonoBehaviour {
         else if (col.tag == "Damaging")
         {
 
-            PlayerDamage(25);
+            PlayerDamage(platformDamage);
 
         }
         else if (col.tag == "Spider")
         {
             pushBackTime = .25f;
-            PlayerDamage(25);
+            PlayerDamage(spiderDamage);
+        }
+        else if (col.tag == "Poison")
+        {
+            isPoisoned = true;
+        }
+        else if (col.tag == "Antidote")
+        {
+            isPoisoned = false;
+        }
+        else if (col.tag == "PoisonSpider")
+        {
+            pushBackTime = .25f;
+            PlayerDamage(spiderDamage);
+            isPoisoned = true;
         }
 
     }
@@ -267,6 +296,7 @@ public class PlayerController : MonoBehaviour {
     {
 
 		currentHealth -= damage;
+        Debug.Log("Player Health = " + currentHealth);
 
 		float normalizedHealth = (float)currentHealth / (float)health;
 

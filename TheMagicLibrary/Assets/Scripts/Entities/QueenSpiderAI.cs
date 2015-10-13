@@ -12,12 +12,14 @@ public class QueenSpiderAI : MonoBehaviour {
     private Vector3 endPosition;
     private Vector3 lastSpot;
     private float timer = 0;
-    private bool goingUp = false;
+    private float timerCopy = 0;
+    private bool goingUp = true;
+    private bool burn1;
+    private bool burn2;
+    private bool wasBurning = false;
     private PlayerController spells;
     private GameObject light1;
     private GameObject light2;
-    private bool burn1;
-    private bool burn2;
 
     void Start()
     {
@@ -42,8 +44,8 @@ public class QueenSpiderAI : MonoBehaviour {
         if (light1 != null)
         {
             if (light1.transform.position.x >= (startPosition.x - lightRange) &&
-                 light1.transform.position.x <= (startPosition.x + lightRange) && 
-                 light1.transform.position.y < startPosition.y && 
+                 light1.transform.position.x <= (startPosition.x + lightRange) &&
+                 light1.transform.position.y < startPosition.y &&
                  light1.transform.position.y > (startPosition.y - range.y))
             {
                 burn1 = true;
@@ -69,49 +71,81 @@ public class QueenSpiderAI : MonoBehaviour {
         }
         if (burn1 || burn2)
         {
-            if(burn1 && burn2)
+            wasBurning = true;
+            if (burn1 && burn2)
             {
-                if(light1.transform.position.y > light2.transform.position.y)
+                if (light1.transform.position.y > light2.transform.position.y)
                 {
-                    if(endPosition.y != light1.transform.position.y + 3f)
+                    if (endPosition.y != light1.transform.position.y + 3f)
                     {
                         endPosition.y = light1.transform.position.y + 3f;
+                        timerCopy = timer;
                         timer = 0;
+                    }
+                    if (endPosition.y < player.transform.position.y + 0.25f)
+                    {
+                        endPosition.y = player.transform.position.y + 0.25f;
+                        timer = timerCopy;
                     }
                 }
                 else
                 {
-                    if(endPosition.y != light2.transform.position.y + 3f)
+                    if (endPosition.y != light2.transform.position.y + 3f)
                     {
                         endPosition.y = light2.transform.position.y + 3f;
+                        timerCopy = timer;
                         timer = 0;
+                    }
+                    if (endPosition.y < player.transform.position.y + 0.25f)
+                    {
+                        endPosition.y = player.transform.position.y + 0.25f;
+                        timer = timerCopy;
                     }
                 }
             }
             else if (burn1)
             {
-                if(endPosition.y != light1.transform.position.y + 3f)
+                wasBurning = true;
+                if (endPosition.y != light1.transform.position.y + 3f)
                 {
                     endPosition.y = light1.transform.position.y + 3f;
+                    timerCopy = timer;
                     timer = 0;
+                }
+                if (endPosition.y < player.transform.position.y + 0.25f)
+                {
+                    endPosition.y = player.transform.position.y + 0.25f;
+                    timer = timerCopy;
                 }
             }
             else if (burn2)
             {
-                if(endPosition.y != light2.transform.position.y + 3f)
+                wasBurning = true;
+                if (endPosition.y != light2.transform.position.y + 3f)
                 {
                     endPosition.y = light2.transform.position.y + 3f;
+                    timerCopy = timer;
                     timer = 0;
+                }
+                if (endPosition.y < player.transform.position.y + 0.25f)
+                {
+                    endPosition.y = player.transform.position.y + 0.25f;
+                    timer = timerCopy;
                 }
             }
         }
         else
         {
-            if(endPosition.y != player.transform.position.y + 0.25f)
+            if (wasBurning)
             {
                 endPosition.y = player.transform.position.y + 0.25f;
                 timer = 0;
             }
+            else if (endPosition.y != player.transform.position.y + 0.25f)
+            {
+                endPosition.y = player.transform.position.y + 0.25f;
+            }
+            wasBurning = false;
         }
 
         if (player.transform.position.x >= (startPosition.x - range.x) &&

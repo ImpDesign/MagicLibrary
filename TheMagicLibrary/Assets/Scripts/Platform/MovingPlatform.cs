@@ -8,8 +8,9 @@ public class MovingPlatform : MonoBehaviour {
 
 	private float timer = 0;
 	private Vector3 startPosition = Vector3.zero;
+    private bool outgoing = true;
 
-	void Start ()
+    void Start ()
     {
 		startPosition = this.gameObject.transform.position;
 		endPosition = endPosition + startPosition;
@@ -20,11 +21,7 @@ public class MovingPlatform : MonoBehaviour {
 			speed = speed/distance;
 		}
 	}
-	
-	// Update is called once per frame startPosition = Vector3.zero;
-	private bool outgoing = true;
 
-	// Use this for initialization
 	void Update () {
 
 		timer += Time.deltaTime * speed;
