@@ -45,6 +45,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Entities\CameraFollow2D.cs" />
+     <Compile Include="Assets\Scripts\Entities\MoveProjectile.cs" />
+     <Compile Include="Assets\Scripts\Entities\QueenSpiderAI.cs" />
+     <Compile Include="Assets\Scripts\Entities\ShootBolt.cs" />
+     <Compile Include="Assets\Scripts\Entities\StrikerSpiderAI.cs" />
+     <Compile Include="Assets\Scripts\Entities\TimerSpiderAI.cs" />
      <Compile Include="Assets\Scripts\FogController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Gizmos\InvisibleMovingPlatformGizmo.cs" />
@@ -60,21 +66,22 @@
      <Compile Include="Assets\Scripts\Platform\InvisiblePlatformController.cs" />
      <Compile Include="Assets\Scripts\Platform\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationController2D.cs" />
-     <Compile Include="Assets\Scripts\Player\CameraFollow2D.cs" />
      <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\Player\LightScript.cs" />
-     <Compile Include="Assets\Scripts\Player\MoveProjectile.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Player\ShootBolt.cs" />
      <Compile Include="Assets\Scripts\Player\WeaponScript.cs" />
-     <Compile Include="Assets\Scripts\QueenSpiderAI.cs" />
-     <Compile Include="Assets\Scripts\StrikerSpiderAI.cs" />
-     <Compile Include="Assets\Scripts\TimerSpiderAI.cs" />
+     <Compile Include="Assets\Scripts\SpinWeb.cs" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

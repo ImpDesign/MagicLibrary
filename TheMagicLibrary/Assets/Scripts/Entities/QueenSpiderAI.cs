@@ -107,7 +107,11 @@ public class QueenSpiderAI : MonoBehaviour {
         }
         else
         {
-            endPosition.y = player.transform.position.y + 0.25f;
+            if(endPosition.y != player.transform.position.y + 0.25f)
+            {
+                endPosition.y = player.transform.position.y + 0.25f;
+                timer = 0;
+            }
         }
 
         if (player.transform.position.x >= (startPosition.x - range.x) &&

@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour {
     public GameObject trickPlatformList;
     public GameObject deathBlur;
 	//public GameObject healthbar;
-	//public GameObject gameOverPanel;
 	Vector3 velocity = Vector3.zero;
 	public float speed = 5;
 	public float gravity = -1;
@@ -81,20 +80,6 @@ public class PlayerController : MonoBehaviour {
 				this.transform.parent = null;
 			}
 		}
-        /*/Colapsing platform exception
-        if (_controller.isGrounded && (_controller.ground != null) && (_controller.ground.tag == "ColapsingPlatform"))
-        {
-            this.transform.parent = _controller.ground.transform;
-        }
-        else
-        {
-
-            if (this.transform.parent != null)
-            {
-                this.transform.parent = null;
-            }
-        }*/
-
         velocity.x = 0;
 
         //If the player is still alive, do everything here
@@ -162,6 +147,10 @@ public class PlayerController : MonoBehaviour {
                 {
                     s.enabled = true;
                 }
+                foreach (LineRenderer l in invisiblePlatformList.GetComponentsInChildren<LineRenderer>())
+                {
+                    l.enabled = true;
+                }
                 foreach (SpriteRenderer s in trickPlatformList.GetComponentsInChildren<SpriteRenderer>())
                 {
                     s.enabled = false;
@@ -175,6 +164,10 @@ public class PlayerController : MonoBehaviour {
                     {
                         s.enabled = false;
                     }
+                }
+                foreach (LineRenderer l in invisiblePlatformList.GetComponentsInChildren<LineRenderer>())
+                {
+                    l.enabled = false;
                 }
                 foreach (SpriteRenderer s in trickPlatformList.GetComponentsInChildren<SpriteRenderer>())
                 {
