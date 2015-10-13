@@ -50,6 +50,9 @@
      <Compile Include="Assets\Scripts\Gizmos\InvisibleMovingPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\InvisibleOneWayGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\InvisiblePlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleSpiderQueenGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleSpiderStrikerGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleSpiderTimerGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickMovingPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\LoadLevelUtil.cs" />
@@ -65,7 +68,6 @@
      <Compile Include="Assets\Scripts\Player\ShootBolt.cs" />
      <Compile Include="Assets\Scripts\Player\WeaponScript.cs" />
      <Compile Include="Assets\Scripts\QueenSpiderAI.cs" />
-     <Compile Include="Assets\Scripts\SpiderAI.cs" />
      <Compile Include="Assets\Scripts\StrikerSpiderAI.cs" />
      <Compile Include="Assets\Scripts\TimerSpiderAI.cs" />
  <Reference Include="UnityEngine.UI">

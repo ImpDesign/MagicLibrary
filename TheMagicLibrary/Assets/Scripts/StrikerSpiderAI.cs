@@ -74,9 +74,11 @@ public class StrikerSpiderAI : MonoBehaviour {
         Vector3 lineDraw = range;
         lineDraw.y = -(range.y);
         Gizmos.DrawLine(this.transform.position, lineDraw + this.transform.position);
+        Gizmos.DrawLine(this.transform.position + new Vector3(range.x, 0, 0), lineDraw + this.transform.position);
 
         lineDraw.x = -range.x;
         Gizmos.DrawLine(this.transform.position, lineDraw + this.transform.position);
+        Gizmos.DrawLine(this.transform.position - new Vector3(range.x, 0, 0), lineDraw + this.transform.position);
     }
 
 }

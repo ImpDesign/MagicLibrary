@@ -225,6 +225,17 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    //Used for Queen Spiders
+    public GameObject GetLight1()
+    {
+        return light1;
+    }
+    //Used for Queen Spiders
+    public GameObject GetLight2()
+    {
+        return light2;
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
 
