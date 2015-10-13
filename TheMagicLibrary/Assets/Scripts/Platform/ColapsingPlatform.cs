@@ -16,8 +16,6 @@ public class ColapsingPlatform : MonoBehaviour {
     private bool active = false;
     private bool falling = false;
     private bool check = false;
-    private GameObject copyReset;
-    private UnityEngine.Quaternion rotation;
     private float fuzeCopy;
     private float resetCopy;
 
@@ -25,8 +23,6 @@ public class ColapsingPlatform : MonoBehaviour {
     {
         startPosition = this.gameObject.transform.position;
         endPosition = endPosition + startPosition;
-        copyReset = this.gameObject;
-        rotation = this.gameObject.transform.rotation;
         fuzeCopy = fuze;
         resetCopy = reset;
 

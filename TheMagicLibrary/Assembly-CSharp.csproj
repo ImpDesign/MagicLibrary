@@ -45,24 +45,27 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AnimationController2D.cs" />
-     <Compile Include="Assets\Scripts\CameraFollow2D.cs" />
-     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
-     <Compile Include="Assets\Scripts\ColapsingPlatform.cs" />
      <Compile Include="Assets\Scripts\FogController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\InvisibleMovingPlatformGizmo.cs" />
-     <Compile Include="Assets\Scripts\InvisibleOneWayGizmo.cs" />
-     <Compile Include="Assets\Scripts\InvisiblePlatformController.cs" />
-     <Compile Include="Assets\Scripts\InvisiblePlatformGizmo.cs" />
-     <Compile Include="Assets\Scripts\LightScript.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleMovingPlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleOneWayGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisiblePlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\TrickMovingPlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\TrickPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\LoadLevelUtil.cs" />
-     <Compile Include="Assets\Scripts\MoveProjectile.cs" />
-     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\TrickMovingPlatformGizmo.cs" />
-     <Compile Include="Assets\Scripts\TrickPlatformGizmo.cs" />
-     <Compile Include="Assets\Scripts\WeaponScript.cs" />
+     <Compile Include="Assets\Scripts\Platform\ColapsingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platform\InvisiblePlatformController.cs" />
+     <Compile Include="Assets\Scripts\Platform\MovingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Player\AnimationController2D.cs" />
+     <Compile Include="Assets\Scripts\Player\CameraFollow2D.cs" />
+     <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
+     <Compile Include="Assets\Scripts\Player\LightScript.cs" />
+     <Compile Include="Assets\Scripts\Player\MoveProjectile.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Player\ShootBolt.cs" />
+     <Compile Include="Assets\Scripts\Player\WeaponScript.cs" />
+     <Compile Include="Assets\Scripts\SpiderAI.cs" />
+     <Compile Include="Assets\Scripts\Tracker.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

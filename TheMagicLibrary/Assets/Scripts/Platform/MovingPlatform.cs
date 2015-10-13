@@ -6,12 +6,8 @@ public class MovingPlatform : MonoBehaviour {
 	public Vector3 endPosition = Vector3.zero;
 	public float speed = 1;
 
-
 	private float timer = 0;
 	private Vector3 startPosition = Vector3.zero;
-
-    private Vector3 position1 = Vector3.zero;
-    private Vector3 position2 = Vector3.zero;
 
 	void Start ()
     {
@@ -36,8 +32,6 @@ public class MovingPlatform : MonoBehaviour {
 		if (outgoing)
         {
 			this.transform.position = Vector3.Lerp (startPosition, endPosition, timer);
-            position1 = startPosition;
-            position2 = endPosition;
 			if(timer > 1)
             {
 				timer = 0;
@@ -47,8 +41,6 @@ public class MovingPlatform : MonoBehaviour {
         else
         {
 			this.transform.position = Vector3.Lerp (endPosition, startPosition, timer);
-            position1 = endPosition;
-            position2 = startPosition;
 			if(timer > 1)
             {
 				timer = 0;
@@ -58,19 +50,6 @@ public class MovingPlatform : MonoBehaviour {
 
 	
 	}
-
-    public Vector3 GetPosition1()
-    {
-        return position1;
-    }
-    public Vector3 GetPosition2()
-    {
-        return position2;
-    }
-    public float GetTimer()
-    {
-        return timer;
-    }
 
     void OnDrawGizmos ()
     {

@@ -12,31 +12,27 @@ public class PlayerController : MonoBehaviour {
     public GameObject deathBlur;
 	//public GameObject healthbar;
 	//public GameObject gameOverPanel;
-
 	Vector3 velocity = Vector3.zero;
 	public float speed = 5;
 	public float gravity = -1;
 	public float spring = 100;
-
 	public int health = 100;
+    public bool doubleJump = false;
+    public bool fireBolt = false;
+    public bool revealSpell = false;
+    public bool lightSpell = false;
 
-	private CharacterController2D _controller;
+    private CharacterController2D _controller;
 	private AnimationController2D _animator;
-
 	private int currentHealth = 0;
     private float fireTime = 0;
+    private float pushBackTime = 0;
     private int direction = 1;
     private bool isAlive = true;
     private bool canJump = false;
     private bool canDoubleJump = false;
     private bool canReveal = false;
     private bool cameraDerp = true;
-
-    public bool doubleJump = false;
-    public bool fireBolt = false;
-    public bool revealSpell = false;
-    public bool lightSpell = false;
-
     private GameObject light1;
     private GameObject light2;
     private GameObject newLight;
@@ -186,11 +182,11 @@ public class PlayerController : MonoBehaviour {
                 }
             }
             //For Light Spell
-            if (Input.GetKey(KeyCode.LeftAlt) && lightSpell)
+            if (Input.GetKey(KeyCode.Z) && lightSpell)
             {
                 fireTime += Time.deltaTime;
             }
-            if (Input.GetKeyUp(KeyCode.LeftAlt) && lightSpell)
+            if (Input.GetKeyUp(KeyCode.Z) && lightSpell)
             {
                 LightScript light = GetComponent<LightScript>();
                 if (light != null)
@@ -211,8 +207,19 @@ public class PlayerController : MonoBehaviour {
                 }
                 fireTime = 0;
             }
+            //For FireBolt Spell
+            if (Input.GetKeyDown(KeyCode.X) && fireBolt)
+            {
+                WeaponScript bolt = GetComponent<WeaponScript>();
+                bolt.Attack(direction);
+            }
         }
 
+        if(pushBackTime > 0)
+        {
+            velocity.x += 8 * (-direction);
+            pushBackTime -= Time.deltaTime;
+        }
 		velocity.y += gravity;
 		_controller.move (velocity * Time.deltaTime);
 
@@ -233,6 +240,11 @@ public class PlayerController : MonoBehaviour {
             PlayerDamage(25);
 
         }
+        else if (col.tag == "Spider")
+        {
+            pushBackTime = .25f;
+            PlayerDamage(25);
+        }
 
     }
 
@@ -240,10 +252,12 @@ public class PlayerController : MonoBehaviour {
     {
 
 		isAlive = false;
-		//_animator.setAnimation("Death");
-		//gameOverPanel.SetActive (true);
+        //_animator.setAnimation("Death");
+        currentHealth = 0;
+        //healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0 , 32);
+        DeathBlur();
 
-	}
+    }
 
 	private void PlayerDamage(int damage)
     {
