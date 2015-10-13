@@ -64,8 +64,10 @@
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\ShootBolt.cs" />
      <Compile Include="Assets\Scripts\Player\WeaponScript.cs" />
+     <Compile Include="Assets\Scripts\QueenSpiderAI.cs" />
      <Compile Include="Assets\Scripts\SpiderAI.cs" />
-     <Compile Include="Assets\Scripts\Tracker.cs" />
+     <Compile Include="Assets\Scripts\StrikerSpiderAI.cs" />
+     <Compile Include="Assets\Scripts\TimerSpiderAI.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
