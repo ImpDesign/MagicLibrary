@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 	public float gravity = -1;
 	public float spring = 100;
     public float poisonRate = 2f;
+    public float nightvisionRate = 20f;
 	public int health = 100;
     public int poisonDamage = 1;
     public int spiderDamage = 25;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour {
     private float fireTime = 0;
     private float pushBackTime = 0;
     private float poisonTimer = 0;
+    private float nightvisionTimer = 0;
     private int direction = 1;
     private bool isAlive = true;
     private bool isPoisoned = false;
@@ -43,7 +45,7 @@ public class PlayerController : MonoBehaviour {
     private GameObject newLight;
     private int oldLight = 2;
 
-    // Use this for initialization
+
     void Start () {
 
 		_controller = gameObject.GetComponent<CharacterController2D>();
@@ -53,7 +55,6 @@ public class PlayerController : MonoBehaviour {
         StartCoroutine("FadeInSequence");
 	}
 	
-	// Update is called once per frame
 	void Update () {
 
         //Used to start Camera2D Follow script once the level is restart
@@ -212,24 +213,34 @@ public class PlayerController : MonoBehaviour {
                 WeaponScript bolt = GetComponent<WeaponScript>();
                 bolt.Attack(direction);
             }
-        }
-        //Pushback for harmful entities
-        if(pushBackTime > 0)
-        {
-            velocity.x += 8 * (-direction);
-            pushBackTime -= Time.deltaTime;
-        }
-		velocity.y += gravity;
-		_controller.move (velocity * Time.deltaTime);
-        //Posion script
-        if(isPoisoned)
-        {
-            if(poisonTimer <= 0)
+            //Pushback for harmful entities
+            if (pushBackTime > 0)
             {
-                PlayerDamage(poisonDamage);
-                poisonTimer = poisonRate;
+                velocity.x += 8 * (-direction);
+                pushBackTime -= Time.deltaTime;
             }
-            poisonTimer -= Time.deltaTime;
+            velocity.y += gravity;
+            _controller.move(velocity * Time.deltaTime);
+            //Posion script
+            if (isPoisoned)
+            {
+                if (poisonTimer <= 0)
+                {
+                    PlayerDamage(poisonDamage);
+                    poisonTimer = poisonRate;
+                }
+                poisonTimer -= Time.deltaTime;
+            }
+            //Nightvision script
+            if (nightvisionTimer > 0)
+            {
+                GetComponentInChildren<Light>().enabled = true;
+                nightvisionTimer -= Time.deltaTime;
+            }
+            else
+            {
+                GetComponentInChildren<Light>().enabled = false;
+            }
         }
     }
 
@@ -277,6 +288,14 @@ public class PlayerController : MonoBehaviour {
             pushBackTime = .25f;
             PlayerDamage(spiderDamage);
             isPoisoned = true;
+        }
+        else if (col.tag == "Health")
+        {
+            currentHealth = health;
+        }
+        else if (col.tag == "Nightvision")
+        {
+            nightvisionTimer = nightvisionRate;
         }
 
     }

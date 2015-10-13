@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\Player\LightScript.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\WeaponScript.cs" />
+     <Compile Include="Assets\Scripts\Regrow.cs" />
      <Compile Include="Assets\Scripts\SpinWeb.cs" />
      <Compile Include="Assets\Scripts\Test.cs" />
  <Reference Include="UnityEngine.UI">
