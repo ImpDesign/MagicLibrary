@@ -77,7 +77,12 @@ public class PlayerController : MonoBehaviour {
             {
                 _controller.ground.GetComponent<ColapsingPlatform>().set = true;
             }
-            
+            //Traveling platform
+            if (_controller.ground.GetComponent<TravelingPlatform>() != null)
+            {
+                _controller.ground.GetComponent<TravelingPlatform>().active = true;
+            }
+
         } 
 		else
         {

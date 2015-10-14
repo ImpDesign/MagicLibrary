@@ -45,9 +45,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CircleBook.cs" />
      <Compile Include="Assets\Scripts\Entities\BookMover.cs" />
      <Compile Include="Assets\Scripts\Entities\CameraFollow2D.cs" />
+     <Compile Include="Assets\Scripts\Entities\CircleBook.cs" />
      <Compile Include="Assets\Scripts\Entities\FlyingBook.cs" />
      <Compile Include="Assets\Scripts\Entities\MoveProjectile.cs" />
      <Compile Include="Assets\Scripts\Entities\QueenSpiderAI.cs" />
@@ -77,6 +77,7 @@
      <Compile Include="Assets\Scripts\Platform\ColapsingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\InvisiblePlatformController.cs" />
      <Compile Include="Assets\Scripts\Platform\MovingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platform\TravelingPlatform.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationController2D.cs" />
      <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\Player\LightScript.cs" />
