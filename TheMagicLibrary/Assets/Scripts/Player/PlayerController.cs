@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour {
     private float pushBackTime = 0;
     private float poisonTimer = 0;
     private float nightvisionTimer = 0;
+    private float cameraTimer = 0;
+    private float cameraTimer2 = 0;
+    private float cameraTimer3 = 0;
     private int direction = 1;
     private bool isAlive = true;
     private bool isPoisoned = false;
@@ -40,11 +43,11 @@ public class PlayerController : MonoBehaviour {
     private bool canDoubleJump = false;
     private bool canReveal = false;
     private bool cameraDerp = true;
+    private bool cutsceneFinish = true;
     private GameObject light1;
     private GameObject light2;
     private GameObject newLight;
     private int oldLight = 2;
-
 
     void Start () {
 
@@ -82,7 +85,43 @@ public class PlayerController : MonoBehaviour {
             {
                 _controller.ground.GetComponent<TravelingPlatform>().active = true;
             }
+            //Switch platform
+            if (_controller.ground.GetComponent<SwitchPlatform>() != null)
+            {
+                if(!cutsceneFinish || !_controller.ground.GetComponent<SwitchPlatform>().Used)
+                {
+                    cutsceneFinish = false;
+                    if (cameraTimer == 0)
+                    {
+                        _controller.ground.GetComponent<SwitchPlatform>().active = true;
+                        isAlive = false;
+                    }
+                    if (_controller.ground.GetComponent<SwitchPlatform>().GetTimer > 1)
+                    {
+                        if (cameraTimer == 0)
+                        {
+                            gameCamera.gameObject.GetComponent<CameraFollow2D>().setTarget(_controller.ground.GetComponent<SwitchPlatform>().door.gameObject);
+                        }
+                        cameraTimer += Time.deltaTime;
+                        if (cameraTimer > 1)
+                        {
+                            cameraTimer2 += Time.deltaTime;
+                            _controller.ground.GetComponent<SwitchPlatform>().cameraActive = true;
+                            if (cameraTimer2 > 1)
+                            {
+                                cameraTimer3 += Time.deltaTime;
+                                gameCamera.gameObject.GetComponent<CameraFollow2D>().setTarget(gameObject);
 
+                                if (cameraTimer3 > 1)
+                                {
+                                    isAlive = true;
+                                    cutsceneFinish = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         } 
 		else
         {
@@ -91,6 +130,9 @@ public class PlayerController : MonoBehaviour {
             {
 				this.transform.parent = null;
 			}
+            cameraTimer = 0;
+            cameraTimer2 = 0;
+            cameraTimer3 = 0;
 		}
         velocity.x = 0;
 
