@@ -219,8 +219,6 @@ public class PlayerController : MonoBehaviour {
                 velocity.x += 8 * (-direction);
                 pushBackTime -= Time.deltaTime;
             }
-            velocity.y += gravity;
-            _controller.move(velocity * Time.deltaTime);
             //Posion script
             if (isPoisoned)
             {
@@ -242,6 +240,8 @@ public class PlayerController : MonoBehaviour {
                 GetComponentInChildren<Light>().enabled = false;
             }
         }
+        velocity.y += gravity;
+        _controller.move(velocity * Time.deltaTime);
     }
 
     //Used for Queen Spiders
@@ -313,17 +313,19 @@ public class PlayerController : MonoBehaviour {
 
 	private void PlayerDamage(int damage)
     {
-
-		currentHealth -= damage;
-        Debug.Log("Player Health = " + currentHealth);
-
-		float normalizedHealth = (float)currentHealth / (float)health;
-
-		//healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (normalizedHealth * 256, 32);
-		if (currentHealth <= 0)
+        if(isAlive)
         {
-			PlayerDeath ();
-		}
+            currentHealth -= damage;
+            Debug.Log("Player Health = " + currentHealth);
+
+            float normalizedHealth = (float)currentHealth / (float)health;
+
+            //healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (normalizedHealth * 256, 32);
+            if (currentHealth <= 0)
+            {
+                PlayerDeath();
+            }
+        }
 	}
 
 	private void PlayerFallDeath()

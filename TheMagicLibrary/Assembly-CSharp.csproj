@@ -45,10 +45,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CircleBook.cs" />
+     <Compile Include="Assets\Scripts\Entities\BookMover.cs" />
      <Compile Include="Assets\Scripts\Entities\CameraFollow2D.cs" />
+     <Compile Include="Assets\Scripts\Entities\FlyingBook.cs" />
      <Compile Include="Assets\Scripts\Entities\MoveProjectile.cs" />
      <Compile Include="Assets\Scripts\Entities\QueenSpiderAI.cs" />
+     <Compile Include="Assets\Scripts\Entities\Regrow.cs" />
      <Compile Include="Assets\Scripts\Entities\ShootBolt.cs" />
+     <Compile Include="Assets\Scripts\Entities\ShootingBooks.cs" />
+     <Compile Include="Assets\Scripts\Entities\SpinWeb.cs" />
      <Compile Include="Assets\Scripts\Entities\StrikerSpiderAI.cs" />
      <Compile Include="Assets\Scripts\Entities\TimerSpiderAI.cs" />
      <Compile Include="Assets\Scripts\FogController.cs" />
@@ -76,9 +82,6 @@
      <Compile Include="Assets\Scripts\Player\LightScript.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\WeaponScript.cs" />
-     <Compile Include="Assets\Scripts\Regrow.cs" />
-     <Compile Include="Assets\Scripts\SpinWeb.cs" />
-     <Compile Include="Assets\Scripts\Test.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

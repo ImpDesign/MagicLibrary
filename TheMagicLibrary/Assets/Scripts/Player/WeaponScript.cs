@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-/// <summary>
-/// Launch projectile
-/// </summary>
+
 public class WeaponScript : MonoBehaviour
 {
     public Transform shotPrefab;

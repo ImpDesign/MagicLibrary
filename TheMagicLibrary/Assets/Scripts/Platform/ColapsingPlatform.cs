@@ -18,6 +18,7 @@ public class ColapsingPlatform : MonoBehaviour {
     private bool check = false;
     private float fuzeCopy;
     private float resetCopy;
+    private bool outgoing = true;
 
     void Start()
     {
@@ -33,10 +34,7 @@ public class ColapsingPlatform : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame startPosition = Vector3.zero;
-    private bool outgoing = true;
 
-    // Use this for initialization
     void Update()
     {
         if(set)
