@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour {
                             _controller.ground.GetComponent<SwitchPlatform>().cameraActive = true;
                             if (cameraTimer2 > 1)
                             {
-                                cameraTimer3 += Time.deltaTime;
+                                cameraTimer3 += Time.deltaTime * 1.25f;
                                 gameCamera.gameObject.GetComponent<CameraFollow2D>().setTarget(gameObject);
 
                                 if (cameraTimer3 > 1)

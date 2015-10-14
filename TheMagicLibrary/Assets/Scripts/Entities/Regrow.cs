@@ -3,13 +3,21 @@ using System.Collections;
 
 public class Regrow : MonoBehaviour {
 
-    public GameObject player;
     public float respawnRate = 60f;
 
     private float respawnTimer;
+    private GameObject player;
 
-	void Start () {
+    void Start () {
         respawnTimer = 0;
+        if(GameObject.Find("Player") != null)
+        {
+            player = GameObject.Find("Player");
+        }
+        else
+        {
+            player = GameObject.Find("DarkPlayer");
+        }
 	}
 	
 	void Update () {

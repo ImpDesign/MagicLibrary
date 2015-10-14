@@ -11,7 +11,6 @@ public class SwitchPlatform : MonoBehaviour {
     private float timer = 0;
     private Vector3 startPosition = Vector3.zero;
     private Vector3 endPosition = Vector3.zero;
-    private Vector3 currentPosition = Vector3.zero;
 
     void Start()
     {
@@ -32,7 +31,6 @@ public class SwitchPlatform : MonoBehaviour {
         {
             timer += Time.deltaTime * speed;
             transform.position = Vector3.Lerp(startPosition, endPosition, timer);
-            currentPosition = transform.position;
 
             if(cameraActive)
             {

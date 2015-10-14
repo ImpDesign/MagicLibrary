@@ -3,7 +3,6 @@ using System.Collections;
 
 public class QueenSpiderAI : MonoBehaviour {
 
-    public GameObject player;
     public Vector3 range;
     public float lightRange = 1.5f;
     public float speed = 8;
@@ -20,9 +19,19 @@ public class QueenSpiderAI : MonoBehaviour {
     private PlayerController spells;
     private GameObject light1;
     private GameObject light2;
+    private GameObject player;
 
     void Start()
     {
+
+        if (GameObject.Find("Player") != null)
+        {
+            player = GameObject.Find("Player");
+        }
+        else
+        {
+            player = GameObject.Find("DarkPlayer");
+        }
 
         startPosition = this.gameObject.transform.position;
         endPosition = this.gameObject.transform.position;

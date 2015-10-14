@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class StrikerSpiderAI : MonoBehaviour {
-
-    public GameObject player;
+   
     public Vector3 range;
     public float speed = 8;
 
@@ -12,6 +11,7 @@ public class StrikerSpiderAI : MonoBehaviour {
     private Vector3 lastSpot;
     private float timer = 0;
     private bool goingUp = false;
+    private GameObject player;
 
     void Start()
     {
@@ -22,6 +22,15 @@ public class StrikerSpiderAI : MonoBehaviour {
 
         float distance = Vector3.Distance(startPosition, new Vector3(startPosition.x, startPosition.y - range.y));
         speed = speed / distance;
+
+        if (GameObject.Find("Player") != null)
+        {
+            player = GameObject.Find("Player");
+        }
+        else
+        {
+            player = GameObject.Find("DarkPlayer");
+        }
     }
 
     void Update()
