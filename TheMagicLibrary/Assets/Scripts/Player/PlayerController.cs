@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour {
     public bool fireBolt = false;
     public bool revealSpell = false;
     public bool lightSpell = false;
+    public bool canTeleport = true;
+    public bool isTeleporting = false;
 
     private CharacterController2D _controller;
 	private AnimationController2D _animator;
@@ -134,6 +136,27 @@ public class PlayerController : MonoBehaviour {
             cameraTimer2 = 0;
             cameraTimer3 = 0;
 		}
+        if (_controller.isGrounded && (_controller.ground != null) && (_controller.ground.tag == "Teleport"))
+        {
+            if (_controller.ground.GetComponent<TeleportingBookshelf>() != null)
+            {
+                _controller.ground.GetComponent<TeleportingBookshelf>().inPosition = true;
+                _controller.ground.GetComponent<TeleportingBookshelf>().canTeleport = canTeleport;
+                if(isTeleporting)
+                {
+                    isAlive = false;
+                }
+                else
+                {
+                    isAlive = true;
+                }
+            }
+        }
+        else
+        {
+            canTeleport = true;
+        }
+
         velocity.x = 0;
 
         //If the player is still alive, do everything here
