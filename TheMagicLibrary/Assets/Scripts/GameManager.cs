@@ -3,37 +3,31 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public GameObject pausePanel;
 
-	public void RestartLevel(){
+    public void ResumeGame()
+    {
+        pausePanel.SetActive(false);
+        Time.timeScale = 1;
+    }
 
+	public void RestartLevel()
+    {
         Application.LoadLevel(Application.loadedLevel);
-
 	}
 
-	public void ExitLevel(){
-
+	public void ExitLevel()
+    {
         Application.LoadLevel(0);
-
     }
 
-    public void Play(){
-
+    public void Play()
+    {
         Application.LoadLevel(1);
-
     }
 
-    public void ExitGame(){
-
+    public void ExitGame()
+    {
         Application.Quit();
-
     }
 }

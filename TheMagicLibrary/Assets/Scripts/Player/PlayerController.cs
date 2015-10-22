@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject invisiblePlatformList;
     public GameObject trickPlatformList;
     public GameObject deathBlur;
+    public GameObject pausePanel;
 	//public GameObject healthbar;
 	Vector3 velocity = Vector3.zero;
 	public float speed = 5;
@@ -71,14 +72,8 @@ public class PlayerController : MonoBehaviour {
         //Pausing the game
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Time.timeScale == 0)
-            {
-                Time.timeScale = 1;
-            }
-            else
-            {
-                Time.timeScale = 0;
-            }
+            Time.timeScale = 0;
+            pausePanel.SetActive(true);
         }
 
         //Moving platform exception
@@ -351,6 +346,11 @@ public class PlayerController : MonoBehaviour {
         {
             nightvisionTimer = nightvisionRate;
         }
+        else if (col.tag == "NextLevel")
+        {
+            StopAllCoroutines();
+            StartCoroutine(LoadNextLevel());
+        }
 
     }
 
@@ -425,5 +425,15 @@ public class PlayerController : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
         Application.LoadLevel(Application.loadedLevel);
+    }
+
+    IEnumerator LoadNextLevel()
+    {
+        gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();
+        isAlive = false;
+        yield return new WaitForSeconds(1);
+        StartCoroutine(FadeOutSequence());
+        yield return new WaitForSeconds(1);
+        Application.LoadLevel(Application.loadedLevel+1);
     }
 }
