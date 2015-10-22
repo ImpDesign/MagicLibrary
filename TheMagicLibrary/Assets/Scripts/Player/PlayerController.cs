@@ -101,6 +101,11 @@ public class PlayerController : MonoBehaviour {
             {
                 _controller.ground.GetComponent<SwitchPlatform>().active = true;
             }
+            //Advanced Switch platform
+            if (_controller.ground.GetComponent<AdvancedSwitchPlatform>() != null)
+            {
+                _controller.ground.GetComponent<AdvancedSwitchPlatform>().active = true;
+            }
         } 
 		else
         {

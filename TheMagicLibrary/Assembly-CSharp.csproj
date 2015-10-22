@@ -59,6 +59,14 @@
      <Compile Include="Assets\Scripts\Entities\TimerSpiderAI.cs" />
      <Compile Include="Assets\Scripts\FogController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingCollapsingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingDamagingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingMovingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingOneWayPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingPlatformGizmos.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingPoisonPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingTeleportingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingTravelingPlatform.cs" />
      <Compile Include="Assets\Scripts\Gizmos\InvisibleColapsingGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\InvisibleDamagingGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\InvisibleMovingPlatformGizmo.cs" />
@@ -71,13 +79,18 @@
      <Compile Include="Assets\Scripts\Gizmos\InvisibleSpiderQueenGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\InvisibleSpiderStrikerGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\InvisibleSpiderTimerGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleTeleportingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleTravelingPlatform.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickMovingPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\LoadLevelUtil.cs" />
+     <Compile Include="Assets\Scripts\Platform\AdvancedSwitchPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platform\AppearingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\ColapsingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\InvisiblePlatformController.cs" />
      <Compile Include="Assets\Scripts\Platform\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\SwitchPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platform\TeleportingBookshelf.cs" />
      <Compile Include="Assets\Scripts\Platform\TravelingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\VanishingDoor.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationController2D.cs" />
@@ -85,7 +98,6 @@
      <Compile Include="Assets\Scripts\Player\LightScript.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\WeaponScript.cs" />
-     <Compile Include="Assets\Scripts\TeleportingBookshelf.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

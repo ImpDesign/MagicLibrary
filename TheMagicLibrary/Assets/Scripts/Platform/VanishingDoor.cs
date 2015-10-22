@@ -36,6 +36,7 @@ public class VanishingDoor : MonoBehaviour {
         {
             gameObject.GetComponent<SpriteRenderer>().color = color;
             color.a -= Time.deltaTime;
+            //Debug.Log("FadeOut " + color.a);
             yield return null;
         }
         color.a = 0;
