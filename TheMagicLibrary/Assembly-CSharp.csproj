@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Entities\SpinWeb.cs" />
      <Compile Include="Assets\Scripts\Entities\StrikerSpiderAI.cs" />
      <Compile Include="Assets\Scripts\Entities\TimerSpiderAI.cs" />
+     <Compile Include="Assets\Scripts\Flicker.cs" />
      <Compile Include="Assets\Scripts\FogController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Gizmos\AppearingCollapsingPlatform.cs" />
@@ -83,7 +84,6 @@
      <Compile Include="Assets\Scripts\Gizmos\InvisibleTravelingPlatform.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickMovingPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickPlatformGizmo.cs" />
-     <Compile Include="Assets\Scripts\LoadLevelUtil.cs" />
      <Compile Include="Assets\Scripts\Platform\AdvancedSwitchPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\AppearingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\ColapsingPlatform.cs" />

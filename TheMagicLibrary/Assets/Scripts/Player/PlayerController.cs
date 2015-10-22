@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject trickPlatformList;
     public GameObject deathBlur;
     public GameObject pausePanel;
-	//public GameObject healthbar;
+	public GameObject healthbar;
 	Vector3 velocity = Vector3.zero;
 	public float speed = 5;
 	public float gravity = -1;
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour {
     private float pushBackTime = 0;
     private float poisonTimer = 0;
     private float nightvisionTimer = 0;
+    private float walkingTimer = 0;
     private int direction = 1;
     private bool isAlive = true;
     private bool isPoisoned = false;
@@ -43,10 +44,13 @@ public class PlayerController : MonoBehaviour {
     private bool canDoubleJump = false;
     private bool canReveal = false;
     private bool cameraDerp = true;
+    private bool startNextLevel = false;
     private GameObject light1;
     private GameObject light2;
     private GameObject newLight;
     private int oldLight = 2;
+    private Collider2D endingCollider = null;
+    private Vector3 endingPosition = Vector3.zero;
 
     void Start () {
 
@@ -284,6 +288,25 @@ public class PlayerController : MonoBehaviour {
                 GetComponentInChildren<Light>().enabled = false;
             }
         }
+        //Next Level Load Movement
+        if(endingCollider != null)
+        {
+            endingPosition = endingCollider.transform.position;
+            endingPosition.y = gameObject.transform.position.y;
+        }
+        if (startNextLevel && gameObject.transform.position.x < endingPosition.x)
+        {
+            velocity.x += 3;
+            if (_controller.isGrounded && (_controller.ground != null) && (_controller.ground.tag == "MovingPlatform"))
+            {
+                this.transform.parent = _controller.ground.transform;
+                //Traveling platform
+                if (_controller.ground.GetComponent<TravelingPlatform>() != null)
+                {
+                    _controller.ground.GetComponent<TravelingPlatform>().active = true;
+                }
+            }
+        }
         velocity.y += gravity;
         _controller.move(velocity * Time.deltaTime);
     }
@@ -341,6 +364,7 @@ public class PlayerController : MonoBehaviour {
         else if (col.tag == "Health")
         {
             currentHealth = health;
+            healthbar.GetComponent<RectTransform>().sizeDelta = new Vector2(256, 32);
         }
         else if (col.tag == "Nightvision")
         {
@@ -348,6 +372,11 @@ public class PlayerController : MonoBehaviour {
         }
         else if (col.tag == "NextLevel")
         {
+            gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();
+            isAlive = false;
+            endingCollider = col;
+            startNextLevel = true;
+            Debug.Log("StartNextLevel");
             StopAllCoroutines();
             StartCoroutine(LoadNextLevel());
         }
@@ -360,7 +389,7 @@ public class PlayerController : MonoBehaviour {
 		isAlive = false;
         //_animator.setAnimation("Death");
         currentHealth = 0;
-        //healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0 , 32);
+        healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0 , 32);
         DeathBlur();
 
     }
@@ -374,7 +403,7 @@ public class PlayerController : MonoBehaviour {
 
             float normalizedHealth = (float)currentHealth / (float)health;
 
-            //healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (normalizedHealth * 256, 32);
+            healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (normalizedHealth * 256, 32);
             if (currentHealth <= 0)
             {
                 PlayerDeath();
@@ -385,7 +414,7 @@ public class PlayerController : MonoBehaviour {
 	private void PlayerFallDeath()
     {
 		currentHealth = 0;
-		//healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0 , 32);
+		healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0 , 32);
 		gameCamera.gameObject.GetComponent<CameraFollow2D>().stopCameraFollow();
         DeathBlur();
 
@@ -429,9 +458,8 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator LoadNextLevel()
     {
-        gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();
-        isAlive = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
+        yield return null;
         StartCoroutine(FadeOutSequence());
         yield return new WaitForSeconds(1);
         Application.LoadLevel(Application.loadedLevel+1);
