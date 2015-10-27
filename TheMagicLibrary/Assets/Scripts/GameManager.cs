@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour {
         Application.LoadLevel(0);
     }
 
+
+    public void LoadInfo()
+    {
+        Application.LoadLevel(3);
+    }
+
     public void Play()
     {
         Application.LoadLevel(1);

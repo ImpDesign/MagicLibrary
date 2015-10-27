@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour {
     private float pushBackTime = 0;
     private float poisonTimer = 0;
     private float nightvisionTimer = 0;
-    private float walkingTimer = 0;
+    //private float walkingTimer = 0;
     private int direction = 1;
     private bool isAlive = true;
     private bool isPoisoned = false;
