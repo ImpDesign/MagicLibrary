@@ -193,7 +193,7 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.Space) && (canJump||canDoubleJump))
             {
 				velocity.y = Mathf.Sqrt (2f * spring * -gravity);
-				_animator.setAnimation ("Jump3");
+				_animator.setAnimation ("Jump");
 
                 if(!_controller.isGrounded)
                 {
