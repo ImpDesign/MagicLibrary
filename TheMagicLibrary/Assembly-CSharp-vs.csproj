@@ -39,41 +39,77 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>/Users/Shared/Unity/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>/Users/Shared/Unity/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AnimationController2D.cs" />
-     <Compile Include="Assets\Scripts\CameraFollow2D.cs" />
-     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
+     <Compile Include="Assets\Scripts\Entities\BookMover.cs" />
+     <Compile Include="Assets\Scripts\Entities\CameraFollow2D.cs" />
+     <Compile Include="Assets\Scripts\Entities\CircleBook.cs" />
+     <Compile Include="Assets\Scripts\Entities\FlyingBook.cs" />
+     <Compile Include="Assets\Scripts\Entities\MoveProjectile.cs" />
+     <Compile Include="Assets\Scripts\Entities\QueenSpiderAI.cs" />
+     <Compile Include="Assets\Scripts\Entities\Regrow.cs" />
+     <Compile Include="Assets\Scripts\Entities\ShootBolt.cs" />
+     <Compile Include="Assets\Scripts\Entities\ShootingBooks.cs" />
+     <Compile Include="Assets\Scripts\Entities\SpinWeb.cs" />
+     <Compile Include="Assets\Scripts\Entities\StrikerSpiderAI.cs" />
+     <Compile Include="Assets\Scripts\Entities\TimerSpiderAI.cs" />
+     <Compile Include="Assets\Scripts\Flicker.cs" />
      <Compile Include="Assets\Scripts\FogController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\InvisibleMovingPlatformGizmo.cs" />
-     <Compile Include="Assets\Scripts\InvisibleOneWayGizmo.cs" />
-     <Compile Include="Assets\Scripts\InvisiblePlatformController.cs" />
-     <Compile Include="Assets\Scripts\InvisiblePlatformGizmo.cs" />
-     <Compile Include="Assets\Scripts\LightScript.cs" />
-     <Compile Include="Assets\Scripts\LoadLevelUtil.cs" />
-     <Compile Include="Assets\Scripts\MoveProjectile.cs" />
-     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\TrickMovingPlatformGizmo.cs" />
-     <Compile Include="Assets\Scripts\TrickPlatformGizmo.cs" />
-     <Compile Include="Assets\Scripts\WeaponScript.cs" />
- <Reference Include="UnityEngine.UI">
- <HintPath>/Users/Shared/Unity/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+     <Compile Include="Assets\Scripts\Gizmos\AppearingCollapsingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingDamagingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingMovingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingOneWayPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingPlatformGizmos.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingPoisonPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingTeleportingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\AppearingTravelingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleColapsingGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleDamagingGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleMovingPlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleOneWayGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisiblePlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisiblePoisionSpiderQueenGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisiblePoisonGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisiblePoisonSpiderStrikerGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisiblePoisonSpiderTimerGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleSpiderQueenGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleSpiderStrikerGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleSpiderTimerGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleTeleportingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\InvisibleTravelingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\TrickMovingPlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\Gizmos\TrickPlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\Platform\AdvancedSwitchPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platform\AppearingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platform\ColapsingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platform\InvisiblePlatformController.cs" />
+     <Compile Include="Assets\Scripts\Platform\MovingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platform\SwitchPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platform\TeleportingBookshelf.cs" />
+     <Compile Include="Assets\Scripts\Platform\TravelingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platform\VanishingDoor.cs" />
+     <Compile Include="Assets\Scripts\Player\AnimationController2D.cs" />
+     <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
+     <Compile Include="Assets\Scripts\Player\LightScript.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Player\WeaponScript.cs" />
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>/Users/Shared/Unity/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>/Users/Shared/Unity/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>/Users/Shared/Unity/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
