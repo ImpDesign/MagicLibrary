@@ -1,9 +1,24 @@
 fileFormatVersion: 2
 guid: 593cc8a0e73bab94cb16c1df0b10573b
-timeCreated: 1445479263
+timeCreated: 1445922294
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: playerwalkingWAND_0
+    21300002: playerwalkingWAND_1
+    21300004: playerwalkingWAND_2
+    21300006: playerwalkingWAND_3
+    21300008: playerwalkingWAND_4
+    21300010: playerwalkingWAND_5
+    21300012: playerwalkingWAND_6
+    21300014: playerwalkingWAND_7
+    21300016: playerwalkingWAND_8
+    21300018: playerwalkingWAND_9
+    21300020: playerwalkingWAND_10
+    21300022: playerwalkingWAND_11
+    21300024: playerwalkingWAND_12
+    21300026: playerwalkingWAND_13
+    21300028: playerwalkingWAND_14
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +45,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,18 +53,168 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: playerwalkingWAND_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 0
+        width: 40
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 0
+        width: 40
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 0
+        width: 44
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 0
+        width: 44
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_4
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 0
+        width: 40
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_5
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 0
+        width: 40
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_6
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 0
+        width: 36
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_7
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 0
+        width: 36
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_8
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 0
+        width: 40
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_9
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 0
+        width: 40
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_10
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 0
+        width: 40
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_11
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 0
+        width: 40
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_12
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 0
+        width: 40
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_13
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 0
+        width: 36
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalkingWAND_14
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 0
+        width: 36
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

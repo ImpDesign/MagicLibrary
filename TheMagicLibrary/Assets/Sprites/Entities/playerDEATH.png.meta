@@ -1,0 +1,386 @@
+fileFormatVersion: 2
+guid: f7f540e98dfed124e85dcb5b1a85f578
+timeCreated: 1445922512
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: playerDEATH_0
+    21300002: playerDEATH_1
+    21300004: playerDEATH_2
+    21300006: playerDEATH_3
+    21300008: playerDEATH_4
+    21300010: playerDEATH_5
+    21300012: playerDEATH_6
+    21300014: playerDEATH_7
+    21300016: playerDEATH_8
+    21300018: playerDEATH_9
+    21300020: playerDEATH_10
+    21300022: playerDEATH_11
+    21300024: playerDEATH_12
+    21300026: playerDEATH_13
+    21300028: playerDEATH_14
+    21300030: playerDEATH_15
+    21300032: playerDEATH_16
+    21300034: playerDEATH_17
+    21300036: playerDEATH_18
+    21300038: playerDEATH_19
+    21300040: playerDEATH_20
+    21300042: playerDEATH_21
+    21300044: playerDEATH_22
+    21300046: playerDEATH_23
+    21300048: playerDEATH_24
+    21300050: playerDEATH_25
+    21300052: playerDEATH_26
+    21300054: playerDEATH_27
+    21300056: playerDEATH_28
+    21300058: playerDEATH_29
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 32
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: playerDEATH_0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 23
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 26
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_2
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 0
+        width: 27
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_3
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 26
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_4
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 0
+        width: 27
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_5
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 0
+        width: 26
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_6
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 0
+        width: 38
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_7
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 0
+        width: 34
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_8
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 0
+        width: 30
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_9
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 0
+        width: 31
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_10
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 0
+        width: 31
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_11
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 0
+        width: 34
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_12
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 0
+        width: 38
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_13
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 0
+        width: 38
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_14
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 0
+        width: 47
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_15
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 0
+        width: 42
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_16
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 0
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_17
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_18
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 0
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_19
+      rect:
+        serializedVersion: 2
+        x: 1846
+        y: 0
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_20
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 0
+        width: 59
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_21
+      rect:
+        serializedVersion: 2
+        x: 2038
+        y: 0
+        width: 54
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_22
+      rect:
+        serializedVersion: 2
+        x: 2134
+        y: 0
+        width: 55
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_23
+      rect:
+        serializedVersion: 2
+        x: 2230
+        y: 0
+        width: 54
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_24
+      rect:
+        serializedVersion: 2
+        x: 2321
+        y: 0
+        width: 68
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_25
+      rect:
+        serializedVersion: 2
+        x: 2417
+        y: 0
+        width: 69
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_26
+      rect:
+        serializedVersion: 2
+        x: 2512
+        y: 0
+        width: 69
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_27
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 0
+        width: 68
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_28
+      rect:
+        serializedVersion: 2
+        x: 2705
+        y: 0
+        width: 69
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDEATH_29
+      rect:
+        serializedVersion: 2
+        x: 2801
+        y: 0
+        width: 68
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

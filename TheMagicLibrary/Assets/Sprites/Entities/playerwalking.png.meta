@@ -1,9 +1,25 @@
 fileFormatVersion: 2
 guid: 937ac180416943a419b50b2a58f3bccf
-timeCreated: 1443716704
+timeCreated: 1445922256
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: playerwalking_0
+    21300002: playerwalking_1
+    21300004: playerwalking_2
+    21300006: playerwalking_3
+    21300008: playerwalking_4
+    21300010: playerwalking_5
+    21300012: playerwalking_6
+    21300014: playerwalking_7
+    21300016: playerwalking_8
+    21300018: playerwalking_9
+    21300020: playerwalking_10
+    21300022: playerwalking_11
+    21300024: playerwalking_12
+    21300026: playerwalking_13
+    21300028: playerwalking_14
+    21300030: playerwalking_15
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,18 +54,178 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: playerwalking_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 0
+        width: 24
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_1
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 0
+        width: 24
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_2
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 0
+        width: 28
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_3
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 0
+        width: 28
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_4
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 0
+        width: 24
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_5
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 0
+        width: 24
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_6
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 0
+        width: 16
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_7
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 0
+        width: 16
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_8
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 0
+        width: 24
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_9
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 0
+        width: 24
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_10
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 0
+        width: 28
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_11
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 0
+        width: 28
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_12
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 0
+        width: 28
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_13
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 0
+        width: 28
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_14
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 0
+        width: 16
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerwalking_15
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 0
+        width: 16
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

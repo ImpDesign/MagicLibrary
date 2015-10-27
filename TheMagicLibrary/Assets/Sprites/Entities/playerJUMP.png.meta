@@ -1,0 +1,298 @@
+fileFormatVersion: 2
+guid: bfd0a64dc3e6f4b45b1ecbadba73ae36
+timeCreated: 1445923264
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: playerJUMP_0
+    21300002: playerJUMP_1
+    21300004: playerJUMP_2
+    21300006: playerJUMP_3
+    21300008: playerJUMP_4
+    21300010: playerJUMP_5
+    21300012: playerJUMP_6
+    21300014: playerJUMP_7
+    21300016: playerJUMP_8
+    21300018: playerJUMP_9
+    21300020: playerJUMP_10
+    21300022: playerJUMP_11
+    21300024: playerJUMP_12
+    21300026: playerJUMP_13
+    21300028: playerJUMP_14
+    21300030: playerJUMP_15
+    21300032: playerJUMP_16
+    21300034: playerJUMP_17
+    21300036: playerJUMP_18
+    21300038: playerJUMP_19
+    21300040: playerJUMP_20
+    21300042: playerJUMP_21
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 32
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: playerJUMP_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 0
+        width: 20
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 0
+        width: 24
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_2
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 0
+        width: 24
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 0
+        width: 36
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 0
+        width: 52
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_5
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_6
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_7
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_8
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_9
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_10
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_11
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_12
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_13
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_14
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_15
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_16
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_17
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 1
+        width: 52
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_18
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 0
+        width: 36
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_19
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 0
+        width: 24
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_20
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 0
+        width: 24
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerJUMP_21
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 0
+        width: 20
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

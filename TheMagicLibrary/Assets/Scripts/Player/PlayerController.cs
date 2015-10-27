@@ -99,11 +99,15 @@ public class PlayerController : MonoBehaviour {
             if (_controller.ground.GetComponent<SwitchPlatform>() != null)
             {
                 _controller.ground.GetComponent<SwitchPlatform>().active = true;
+                if (!_controller.ground.GetComponent<SwitchPlatform>().Used)
+                    _animator.setAnimation("Idle");
             }
             //Advanced Switch platform
             if (_controller.ground.GetComponent<AdvancedSwitchPlatform>() != null)
             {
                 _controller.ground.GetComponent<AdvancedSwitchPlatform>().active = true;
+                if(!_controller.ground.GetComponent<AdvancedSwitchPlatform>().Used)
+                    _animator.setAnimation("Idle");
             }
         } 
 		else
@@ -150,27 +154,27 @@ public class PlayerController : MonoBehaviour {
                 }
             }
 
-            //Running left
+            //Walking left
 			if (Input.GetAxis ("Horizontal") < 0) {
 
 				velocity.x = -speed;
 				if (_controller.isGrounded)
                 {
-					//_animator.setAnimation ("Run");
+					_animator.setAnimation ("Walking");
 				}
-                //_animator.setFacing ("Left");
+                _animator.setFacing ("Left");
                 canReveal = false;
                 direction = -1;
 			}
-            //Running right
+            //Walking right
             else if (Input.GetAxis ("Horizontal") > 0)
             {
 				velocity.x = speed;
 				if (_controller.isGrounded)
                 {
-					//_animator.setAnimation ("Run");
+					_animator.setAnimation ("Walking");
 				}
-                //_animator.setFacing ("Right");
+                _animator.setFacing ("Right");
                 canReveal = false;
                 direction = 1;
 			}
@@ -178,7 +182,7 @@ public class PlayerController : MonoBehaviour {
             {
 				if (_controller.isGrounded)
                 {
-                    //_animator.setAnimation ("Idle");
+                    _animator.setAnimation ("Idle");
                     if (revealSpell) { canReveal = true; }
 				}
 			}
@@ -186,7 +190,7 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.Space) && (canJump||canDoubleJump))
             {
 				velocity.y = Mathf.Sqrt (2f * spring * -gravity);
-				//_animator.setAnimation ("Jump");
+				_animator.setAnimation ("Jump3");
 
                 if(!_controller.isGrounded)
                 {
@@ -387,7 +391,7 @@ public class PlayerController : MonoBehaviour {
     {
 
 		isAlive = false;
-        //_animator.setAnimation("Death");
+        _animator.setAnimation("Death");
         currentHealth = 0;
         healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0 , 32);
         DeathBlur();
