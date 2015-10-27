@@ -94,6 +94,8 @@ public class PlayerController : MonoBehaviour {
             if (_controller.ground.GetComponent<TravelingPlatform>() != null)
             {
                 _controller.ground.GetComponent<TravelingPlatform>().active = true;
+                if(!canTeleport)
+                    _animator.setAnimation("Idle");
             }
             //Switch platform
             if (_controller.ground.GetComponent<SwitchPlatform>() != null)
@@ -182,7 +184,8 @@ public class PlayerController : MonoBehaviour {
             {
 				if (_controller.isGrounded)
                 {
-                    _animator.setAnimation ("Idle");
+                    if(_animator.getAnimation() != "Idle_Wand")
+                        _animator.setAnimation ("Idle");
                     if (revealSpell) { canReveal = true; }
 				}
 			}
@@ -237,6 +240,7 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetKey(KeyCode.Z) && lightSpell)
             {
                 fireTime += Time.deltaTime;
+                _animator.setAnimation("Idle_Wand");
             }
             if (Input.GetKeyUp(KeyCode.Z) && lightSpell)
             {
@@ -264,6 +268,7 @@ public class PlayerController : MonoBehaviour {
             {
                 WeaponScript bolt = GetComponent<WeaponScript>();
                 bolt.Attack(direction);
+                _animator.setAnimation("Idle_Wand");
             }
             //Pushback for harmful entities
             if (pushBackTime > 0)
