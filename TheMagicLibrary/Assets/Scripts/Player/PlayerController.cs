@@ -359,10 +359,12 @@ public class PlayerController : MonoBehaviour {
         else if (col.tag == "Poison")
         {
             isPoisoned = true;
+            healthbar.GetComponent<Image>().color = Color.green;
         }
         else if (col.tag == "Antidote")
         {
             isPoisoned = false;
+            healthbar.GetComponent<Image>().color = Color.white;
         }
         else if (col.tag == "PoisonSpider")
         {
@@ -373,7 +375,7 @@ public class PlayerController : MonoBehaviour {
         else if (col.tag == "Health")
         {
             currentHealth = health;
-            healthbar.GetComponent<RectTransform>().sizeDelta = new Vector2(256, 32);
+            healthbar.GetComponent<RectTransform>().anchorMax = new Vector2(.66f, .15f);
         }
         else if (col.tag == "Nightvision")
         {
@@ -398,7 +400,7 @@ public class PlayerController : MonoBehaviour {
 		isAlive = false;
         _animator.setAnimation("Death");
         currentHealth = 0;
-        healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0 , 32);
+        healthbar.SetActive(false);
         DeathBlur();
 
     }
@@ -412,9 +414,10 @@ public class PlayerController : MonoBehaviour {
 
             float normalizedHealth = (float)currentHealth / (float)health;
 
-            healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (normalizedHealth * 256, 32);
+            healthbar.GetComponent<RectTransform>().anchorMax = new Vector2((normalizedHealth*.33f)+.33f, .15f);
             if (currentHealth <= 0)
             {
+                healthbar.SetActive(false);
                 PlayerDeath();
             }
         }
@@ -423,7 +426,7 @@ public class PlayerController : MonoBehaviour {
 	private void PlayerFallDeath()
     {
 		currentHealth = 0;
-		healthbar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (0 , 32);
+        healthbar.SetActive(false);
 		gameCamera.gameObject.GetComponent<CameraFollow2D>().stopCameraFollow();
         DeathBlur();
 
