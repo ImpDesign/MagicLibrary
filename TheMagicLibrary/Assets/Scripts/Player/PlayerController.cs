@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour {
     public GameObject invisiblePlatformList;
     public GameObject trickPlatformList;
     public GameObject deathBlur;
-    public GameObject pausePanel;
 	public GameObject healthbar;
 	Vector3 velocity = Vector3.zero;
 	public float speed = 5;
@@ -72,13 +71,6 @@ public class PlayerController : MonoBehaviour {
 
         //Get the last velocity the player had
 		velocity =  _controller.velocity;
-
-        //Pausing the game
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Time.timeScale = 0;
-            pausePanel.SetActive(true);
-        }
 
         //Moving platform exception
             if (_controller.isGrounded && (_controller.ground != null) && (_controller.ground.tag == "MovingPlatform"))
