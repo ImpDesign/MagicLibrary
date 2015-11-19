@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BackgroundMovement.cs" />
      <Compile Include="Assets\Scripts\Entities\BookMover.cs" />
      <Compile Include="Assets\Scripts\Entities\CameraFollow2D.cs" />
      <Compile Include="Assets\Scripts\Entities\CircleBook.cs" />
@@ -85,6 +86,7 @@
      <Compile Include="Assets\Scripts\Gizmos\InvisibleTravelingPlatform.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickMovingPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickPlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\MenuGuide.cs" />
      <Compile Include="Assets\Scripts\Platform\AdvancedSwitchPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\AppearingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\ColapsingPlatform.cs" />
