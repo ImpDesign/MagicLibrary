@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Camera_Follow_2D.cs" />
+     <Compile Include="Assets\Script.cs" />
      <Compile Include="Assets\Scripts\BackgroundMovement.cs" />
      <Compile Include="Assets\Scripts\Entities\BookMover.cs" />
      <Compile Include="Assets\Scripts\Entities\CameraFollow2D.cs" />

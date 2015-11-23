@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 587f7ef25e97141fab20c7bc3106ea10
 timeCreated: 1448304477
+=======
+guid: ab5f7a882506442a19ed560cb6049e5b
+timeCreated: 1448312945
+>>>>>>> Stashed changes
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -37,7 +42,10 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+<<<<<<< Updated upstream
   allowsAlphaSplitting: 0
+=======
+>>>>>>> Stashed changes
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
