@@ -1,14 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
 guid: ad905e83e7e404103be40b70c4163603
-timeCreated: 1448304506
-=======
-guid: 77251ebc47a554de6a56b5dd961c7a35
-timeCreated: 1448312926
->>>>>>> Stashed changes
+timeCreated: 1448347139
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: jumpTEMP1_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,18 +31,15 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-<<<<<<< Updated upstream
   allowsAlphaSplitting: 0
-=======
->>>>>>> Stashed changes
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -57,7 +50,17 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: jumpTEMP1_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
