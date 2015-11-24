@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2b40767d720005647a6720f03188746d
-timeCreated: 1445924774
+timeCreated: 1448340006
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ TextureImporter:
     21300002: Bookshelf2_1x2
     21300004: Bookshelf2_1x3
     21300006: Bookshelf2_1x4
-    21300008: Bookshelf2 8X8_4
+    21300008: Bookshelf2 1x5
     21300010: Bookshelf2 8X8_5
     21300012: Bookshelf2 8X8_6
     21300014: Bookshelf2_1x8
@@ -154,12 +154,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Bookshelf2 8X8_4
+    - name: Bookshelf2 1x5
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 0
         y: 1792
-        width: 256
+        width: 1280
         height: 256
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -627,7 +627,7 @@ TextureImporter:
     - name: Bookshelf2 8X8_51
       rect:
         serializedVersion: 2
-        x: 768
+        x: 763
         y: 256
         width: 256
         height: 256
@@ -638,7 +638,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 256
+        y: 251
         width: 256
         height: 256
       alignment: 0

@@ -308,6 +308,10 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
+        else if (startNextLevel)
+        {
+            _animator.setAnimation("Idle");
+        }
         velocity.y += gravity;
         _controller.move(velocity * Time.deltaTime);
     }

@@ -43,6 +43,9 @@ public class TutorialBook : MonoBehaviour
     {
         bookPages[currentpage].SetActive(false);
         bookBackground.SetActive(false);
+        nextButton.SetActive(false);
+        backButton.SetActive(false);
+        resumeButton.SetActive(false);
     }
 
 
@@ -99,9 +102,7 @@ public class TutorialBook : MonoBehaviour
 
     public void Resume()
     {
-        Debug.Log("HELLO!");
         Time.timeScale = 1;
         Close();
-        Debug.Log("HELLO!2");
     }
 }
