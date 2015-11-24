@@ -28,7 +28,7 @@ public class TeleportingBookshelf : MonoBehaviour {
 
         color = player.gameObject.GetComponent<SpriteRenderer>().color;
         teleportDestination = destination.gameObject.transform.position;
-        teleportDestination.y += 1.75f;
+        teleportDestination.y += 2.25f;
     }
 	
 
