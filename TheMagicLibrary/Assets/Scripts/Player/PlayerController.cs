@@ -185,11 +185,12 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.Space) && (canJump||canDoubleJump))
             {
 				velocity.y = Mathf.Sqrt (2f * spring * -gravity);
-				_animator.setAnimation ("Jump");
+				_animator.setAnimation ("Jump4");
 
                 if(!_controller.isGrounded)
                 {
                     canDoubleJump = false;
+                    _animator.setAnimation("Jump5");
                 }
                 canJump = false;
                 canReveal = false;

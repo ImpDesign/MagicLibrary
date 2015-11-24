@@ -1,9 +1,24 @@
 fileFormatVersion: 2
 guid: 2263be0dc363b8b45985c9f17bf23dfe
-timeCreated: 1448388761
+timeCreated: 1448389293
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: playerDJUMPtemp_0
+    21300002: playerDJUMPtemp_1
+    21300004: playerDJUMPtemp_2
+    21300006: playerDJUMPtemp_3
+    21300008: playerDJUMPtemp_4
+    21300010: playerDJUMPtemp_5
+    21300012: playerDJUMPtemp_6
+    21300014: playerDJUMPtemp_7
+    21300016: playerDJUMPtemp_8
+    21300018: playerDJUMPtemp_9
+    21300020: playerDJUMPtemp_10
+    21300022: playerDJUMPtemp_11
+    21300024: playerDJUMPtemp_12
+    21300026: playerDJUMPtemp_13
+    21300028: playerDJUMPtemp_14
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +45,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,18 +53,168 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: playerDJUMPtemp_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 18
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 18
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 18
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 18
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_4
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 18
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_5
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 18
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_6
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 18
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_7
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 18
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 18
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_9
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 18
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 18
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_11
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 18
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 18
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_13
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 18
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDJUMPtemp_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 18
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
