@@ -1,9 +1,26 @@
 fileFormatVersion: 2
 guid: ae0746c78243343ddaa910d4e54a4ff6
-timeCreated: 1449171299
+timeCreated: 1449184321
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: EYE_RD_0
+    21300002: EYE_RD_1
+    21300004: EYE_RD_2
+    21300006: EYE_RD_3
+    21300008: EYE_RD_4
+    21300010: EYE_RD_5
+    21300012: EYE_RD_6
+    21300014: EYE_RD_7
+    21300016: EYE_RD_8
+    21300018: EYE_RD_9
+    21300020: EYE_RD_10
+    21300022: EYE_RD_11
+    21300024: EYE_RD_12
+    21300026: EYE_RD_13
+    21300028: EYE_RD_14
+    21300030: EYE_RD_15
+    21300032: EYE_RD_16
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -27,28 +44,199 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 4096
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  allowsAlphaSplitting: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: EYE_RD_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_1
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_2
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_3
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_4
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_5
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_6
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_7
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_8
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_9
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_10
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_11
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_12
+      rect:
+        serializedVersion: 2
+        x: 1748
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_13
+      rect:
+        serializedVersion: 2
+        x: 1893
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_14
+      rect:
+        serializedVersion: 2
+        x: 2038
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_15
+      rect:
+        serializedVersion: 2
+        x: 2183
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EYE_RD_16
+      rect:
+        serializedVersion: 2
+        x: 2328
+        y: 9
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

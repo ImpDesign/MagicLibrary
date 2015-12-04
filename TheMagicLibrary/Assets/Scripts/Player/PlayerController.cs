@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
     public bool lightSpell = false;
     public bool canTeleport = true;
     public bool isTeleporting = false;
+    public bool isBossLevel = false;
 
     private CharacterController2D _controller;
 	private AnimationController2D _animator;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour {
     private bool canReveal = false;
     private bool cameraDerp = true;
     private bool startNextLevel = false;
+    private bool damageByBoss = false;
     private GameObject light1;
     private GameObject light2;
     private GameObject newLight;
@@ -266,7 +268,14 @@ public class PlayerController : MonoBehaviour {
             //Pushback for harmful entities
             if (pushBackTime > 0)
             {
-                velocity.x += 8 * (-direction);
+                if(damageByBoss)
+                {
+                    velocity.x += 8 * direction;
+                }
+                else
+                {
+                    velocity.x += 8 * (-direction);
+                }
                 pushBackTime -= Time.deltaTime;
             }
             //Posion script
@@ -352,6 +361,7 @@ public class PlayerController : MonoBehaviour {
         {
             pushBackTime = .25f;
             PlayerDamage(spiderDamage);
+            damageByBoss = false;
         }
         else if (col.tag == "Poison")
         {
@@ -368,6 +378,7 @@ public class PlayerController : MonoBehaviour {
             pushBackTime = .25f;
             PlayerDamage(spiderDamage);
             isPoisoned = true;
+            damageByBoss = false;
         }
         else if (col.tag == "Health")
         {
@@ -388,7 +399,20 @@ public class PlayerController : MonoBehaviour {
             StopAllCoroutines();
             StartCoroutine(LoadNextLevel());
         }
+        else if (col.tag == "Eyeball")
+        {
+            pushBackTime = .25f;
+            PlayerDamage(15);
+            damageByBoss = true;
+        }
+    }
 
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.tag == "Shadow")
+        {
+            PlayerDamage(1);
+        }
     }
 
     private void PlayerDeath()

@@ -5,19 +5,31 @@ public class BossAI : MonoBehaviour {
 
     public float lightRange = 1.5f;
     public float speed = 8f;
-    public float animationLenth;
+    public float strikeSpeed = 16f;
+    public float animationLength = 1;
+    public float damageDelay = 1f;
+    public GameObject[] positions;
 
     private AnimationController2D _animator;
     private GameObject player;
     private GameObject boss;
     private bool moving = false;
-    private float timer = 0;
+    private bool newAnimation = false;
+    private bool attacking = false;
+    private float speedActual;
+    private float strikeSpeedActual;
+    private float moveTimer = 0;
+    private float attackTimer = 0;
     private float animTimer = 0;
+    private float idleTimer = 0;
+    private float delayTimer = 0;
     private int currentPosition = 0;
     private int maxPositions = 0;
     private Vector3[] destinations;
     private Vector3 start;
+    private Vector3 middle;
     private Vector3 finish;
+    private string anim;
 
 
     void Start () {
@@ -35,17 +47,16 @@ public class BossAI : MonoBehaviour {
 
         _animator = gameObject.GetComponent<AnimationController2D>();
 
-        destinations = new Vector3[transform.childCount + 1];
+        destinations = new Vector3[positions.Length + 1];
         destinations[0] = transform.position;
-        maxPositions = 1;
-
-        for(int i = 0; i > transform.childCount; i++)
+        for(int i = 0; i < positions.Length; i++)
         {
-            destinations[i + 1] = transform.GetChild(i).position;
+            destinations[i + 1] = positions[i].transform.position;
             maxPositions++;
+
         }
 
-	
+        animTimer = Random.Range(0, animationLength);	
 	}
 
 
@@ -53,21 +64,70 @@ public class BossAI : MonoBehaviour {
     {
         if(moving)
         {
-            timer += Time.deltaTime * speed;
-            this.transform.position = Vector3.Lerp(start, finish, timer);
-            if (timer > 1)
+            if(delayTimer > damageDelay)
             {
-                timer = 0;
-                moving = false;
+                if(attacking)
+                {
+                    this.transform.position = Vector3.Lerp(start, middle, attackTimer);
+                    attackTimer += Time.deltaTime * strikeSpeedActual;
+                }
+                else
+                {
+                    this.transform.position = Vector3.Lerp(middle, finish, moveTimer);
+                    moveTimer += Time.deltaTime * speedActual;
+                    if(moveTimer > 1)
+                    {
+                        moveTimer = 0;
+                        attackTimer = 0;
+                        delayTimer = 0;
+                        moving = false;
+                    }
+                }
+                if (attackTimer > 1)
+                {
+                    if(attacking)
+                    {
+                        delayTimer = 0;
+                        attacking = false;
+                        _animator.setAnimation("Moving");
+                    }
+                }
+            }
+            else
+            {
+                delayTimer += Time.deltaTime;
+                if(attacking)
+                {
+                    middle = player.transform.position;
+                    float distance = Vector3.Distance(start, middle);
+                    if (distance != 0)
+                    {
+                        strikeSpeedActual = strikeSpeed / distance;
+                    }
+
+                    distance = Vector3.Distance(start, middle);
+                    if (distance != 0)
+                    {
+                        speedActual = speed / distance;
+                    }
+                }
             }
         }
-
-        if(animTimer > animationLenth)
+        else
         {
-            string anim = "Eye" + Random.Range(1, 5);
-            Debug.Log(anim);
-            _animator.setAnimation(anim);
-            animTimer = 0;
+            if (newAnimation)
+            {
+                _animator.setAnimation(anim);
+                newAnimation = false;
+            }
+
+            if (animTimer > animationLength)
+            {
+                anim = "Eye" + Random.Range(1, 5);
+                _animator.setAnimation("Idle");
+                newAnimation = true;
+                animTimer = 0;
+            }
         }
 
         animTimer += Time.deltaTime;
@@ -86,16 +146,20 @@ public class BossAI : MonoBehaviour {
             currentPosition = 0;
         }
         finish = destinations[currentPosition];
+        _animator.setAnimation("Angry");
         moving = true;
+        attacking = true;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("OnTriggerEnter2D");
         if(col.tag == "MovingPlatform")
         {
-            Debug.Log("TakeDamage");
-            boss.GetComponent<BossHealth>().TakeDamage();
+            if(!moving)
+            {
+                boss.GetComponent<BossHealth>().TakeDamage();
+                Move();
+            }
         }
     }
 
