@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Entities\CircleBook.cs" />
      <Compile Include="Assets\Scripts\Entities\FlyingBook.cs" />
      <Compile Include="Assets\Scripts\Entities\MoveProjectile.cs" />
+     <Compile Include="Assets\Scripts\Entities\MovingEye.cs" />
      <Compile Include="Assets\Scripts\Entities\QueenSpiderAI.cs" />
      <Compile Include="Assets\Scripts\Entities\Regrow.cs" />
      <Compile Include="Assets\Scripts\Entities\ShootBolt.cs" />

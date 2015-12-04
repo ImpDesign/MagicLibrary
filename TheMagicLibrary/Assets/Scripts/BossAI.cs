@@ -8,6 +8,8 @@ public class BossAI : MonoBehaviour {
     public float strikeSpeed = 16f;
     public float animationLength = 1;
     public float damageDelay = 1f;
+    public bool teir2;
+    public bool teir3;
     public GameObject[] positions;
 
     private AnimationController2D _animator;
@@ -16,6 +18,8 @@ public class BossAI : MonoBehaviour {
     private bool moving = false;
     private bool newAnimation = false;
     private bool attacking = false;
+    private bool secondAttack = false;
+    private bool startPosSet = false;
     private float speedActual;
     private float strikeSpeedActual;
     private float moveTimer = 0;
@@ -56,7 +60,16 @@ public class BossAI : MonoBehaviour {
 
         }
 
-        animTimer = Random.Range(0, animationLength);	
+        if(teir2 || teir3)
+        {
+            GetComponent<MovingEye>().enabled = true;
+        }
+        else
+        {
+            GetComponent<MovingEye>().enabled = false;
+        }
+
+        animTimer = Random.Range(0, animationLength);
 	}
 
 
@@ -64,6 +77,11 @@ public class BossAI : MonoBehaviour {
     {
         if(moving)
         {
+            if(!startPosSet)
+            {
+                start = transform.position;
+                startPosSet = true;
+            }
             if(delayTimer > damageDelay)
             {
                 if(attacking)
@@ -81,15 +99,32 @@ public class BossAI : MonoBehaviour {
                         attackTimer = 0;
                         delayTimer = 0;
                         moving = false;
+                        secondAttack = false;
+                        startPosSet = false;
+                        if(teir2 || teir3)
+                        {
+                            GetComponent<MovingEye>().enabled = true;
+                            GetComponent<MovingEye>().SetStart();
+                        }
                     }
                 }
                 if (attackTimer > 1)
                 {
-                    if(attacking)
+                    if((teir2||teir3) && (secondAttack == false))
                     {
                         delayTimer = 0;
-                        attacking = false;
-                        _animator.setAnimation("Moving");
+                        attackTimer = 0;
+                        secondAttack = true;
+                        startPosSet = false;
+                    }
+                    else
+                    {
+                        if (attacking)
+                        {
+                            delayTimer = 0;
+                            attacking = false;
+                            _animator.setAnimation("Moving");
+                        }
                     }
                 }
             }
@@ -136,7 +171,7 @@ public class BossAI : MonoBehaviour {
 
     public void Move ()
     {
-        start = destinations[currentPosition];
+        GetComponent<MovingEye>().enabled = false;
         if (currentPosition != maxPositions)
         {
             currentPosition++;
@@ -153,12 +188,19 @@ public class BossAI : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "MovingPlatform")
+        if(Time.fixedTime > 2)
         {
-            if(!moving)
+            if (col.tag == "MovingPlatform")
             {
-                boss.GetComponent<BossHealth>().TakeDamage();
-                Move();
+                if (!moving)
+                {
+                    if((col.transform.position.y < transform.position.y +2) && (col.transform.position.y > transform.position.y -2)
+                        && (col.transform.position.x < transform.position.x +2) && (col.transform.position.x > transform.position.x -2))
+                    {
+                        boss.GetComponent<BossHealth>().TakeDamage();
+                        Move();
+                    }
+                }
             }
         }
     }
