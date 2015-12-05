@@ -30,7 +30,7 @@ public class TentacleAI : MonoBehaviour {
     private Vector3 currentPos;
     private ParticleSystem particles;
 
-	void Start ()
+	void Awake ()
     {
         originalPos = transform.position;
         particles = Instantiate(particlePrefab) as ParticleSystem;
@@ -77,6 +77,7 @@ public class TentacleAI : MonoBehaviour {
             {
                 disappearing = false;
                 delayTimer = 0;
+                GetComponent<SpriteRenderer>().enabled = false;
                 StartCoroutine(FadeOutSequence());
             }
         }

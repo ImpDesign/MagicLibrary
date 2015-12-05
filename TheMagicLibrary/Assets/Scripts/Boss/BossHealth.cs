@@ -9,20 +9,19 @@ public class BossHealth : MonoBehaviour {
     private int currentHealth;
     private GameObject tentacle;
 
-    void Start() {
-
+    void Start()
+    {
         currentHealth = health;
-        tentacle = transform.GetChild(0).gameObject;
-
     }
 
-    void Update() {
+    void Update()
+    {
 
     }
 
     public void TakeDamage()
     {
         currentHealth = -damage;
-        tentacle.GetComponent<TentacleAI>().Appear();
+        GetComponent<TentacleActivate>().AttackPlayer();
     }
 }
