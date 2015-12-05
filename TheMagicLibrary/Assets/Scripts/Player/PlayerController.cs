@@ -344,7 +344,7 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-
+        Debug.Log("OnTriggerEnter2D");
         if (col.tag == "KillZ")
         {
 
@@ -404,6 +404,12 @@ public class PlayerController : MonoBehaviour {
             pushBackTime = .25f;
             PlayerDamage(15);
             damageByBoss = true;
+        }
+        else if (col.tag == "Tentacle")
+        {
+            pushBackTime = .25f;
+            PlayerDamage(10);
+            damageByBoss = false;
         }
     }
 

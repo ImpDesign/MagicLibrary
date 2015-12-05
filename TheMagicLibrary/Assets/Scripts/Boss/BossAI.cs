@@ -188,20 +188,29 @@ public class BossAI : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(Time.fixedTime > 2)
+        if (col.tag == "MovingPlatform")
         {
-            if (col.tag == "MovingPlatform")
+            if (!moving)
             {
-                if (!moving)
+                if ((col.transform.position.y < transform.position.y + 2) && (col.transform.position.y > transform.position.y - 2)
+                    && (col.transform.position.x < transform.position.x + 2) && (col.transform.position.x > transform.position.x - 2))
                 {
-                    if((col.transform.position.y < transform.position.y +2) && (col.transform.position.y > transform.position.y -2)
-                        && (col.transform.position.x < transform.position.x +2) && (col.transform.position.x > transform.position.x -2))
-                    {
-                        boss.GetComponent<BossHealth>().TakeDamage();
-                        Move();
-                    }
+                    boss.GetComponent<BossHealth>().TakeDamage();
+                    Move();
                 }
             }
+        }
+        else if (col.tag == "FireBall")
+        {
+            if(moving)
+            {
+                if ((col.transform.position.y < transform.position.y + 2) && (col.transform.position.y > transform.position.y - 2)
+                    && (col.transform.position.x < transform.position.x + 2) && (col.transform.position.x > transform.position.x - 2))
+                {
+                    boss.GetComponent<BossHealth>().TakeDamage();
+                }
+            }
+            DestroyObject(col.gameObject);
         }
     }
 

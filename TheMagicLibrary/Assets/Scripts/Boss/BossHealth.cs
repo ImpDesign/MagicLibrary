@@ -7,10 +7,12 @@ public class BossHealth : MonoBehaviour {
     public int damage = 10;
 
     private int currentHealth;
+    private GameObject tentacle;
 
     void Start() {
 
         currentHealth = health;
+        tentacle = transform.GetChild(0).gameObject;
 
     }
 
@@ -21,5 +23,6 @@ public class BossHealth : MonoBehaviour {
     public void TakeDamage()
     {
         currentHealth = -damage;
+        tentacle.GetComponent<TentacleAI>().Appear();
     }
 }
