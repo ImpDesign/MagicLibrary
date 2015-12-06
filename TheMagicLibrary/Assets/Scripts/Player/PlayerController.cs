@@ -421,6 +421,11 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public int GetDirection()
+    {
+        return direction;
+    }
+
     private void PlayerDeath()
     {
 

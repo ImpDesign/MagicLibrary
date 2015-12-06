@@ -8,18 +8,22 @@ public class BossAI : MonoBehaviour {
     public float strikeSpeed = 16f;
     public float animationLength = 1;
     public float damageDelay = 1f;
-    public bool teir2;
-    public bool teir3;
+    public bool tier2;
+    public bool tier3;
     public GameObject[] positions;
 
     private AnimationController2D _animator;
     private GameObject player;
     private GameObject boss;
+    private GameObject light1;
+    private GameObject light2;
     private bool moving = false;
     private bool newAnimation = false;
     private bool attacking = false;
     private bool secondAttack = false;
     private bool startPosSet = false;
+    private bool burn = false;
+    private bool burnMoving = false;
     private float speedActual;
     private float strikeSpeedActual;
     private float moveTimer = 0;
@@ -60,7 +64,7 @@ public class BossAI : MonoBehaviour {
 
         }
 
-        if(teir2 || teir3)
+        if(tier2)
         {
             GetComponent<MovingEye>().enabled = true;
         }
@@ -75,8 +79,9 @@ public class BossAI : MonoBehaviour {
 
 	void Update ()
     {
-        if(moving)
+        if (moving)
         {
+            //MOVING
             if(!startPosSet)
             {
                 start = transform.position;
@@ -84,14 +89,16 @@ public class BossAI : MonoBehaviour {
             }
             if(delayTimer > damageDelay)
             {
-                if(attacking)
+                if (attacking)
                 {
+                    //MOVE TO PLAYER
                     this.transform.position = Vector3.Lerp(start, middle, attackTimer);
                     attackTimer += Time.deltaTime * strikeSpeedActual;
                 }
                 else
                 {
-                    this.transform.position = Vector3.Lerp(middle, finish, moveTimer);
+                    //MOVE TO FINAL POSITION
+                    transform.position = Vector3.Lerp(middle, finish, moveTimer);
                     moveTimer += Time.deltaTime * speedActual;
                     if(moveTimer > 1)
                     {
@@ -101,7 +108,8 @@ public class BossAI : MonoBehaviour {
                         moving = false;
                         secondAttack = false;
                         startPosSet = false;
-                        if(teir2 || teir3)
+
+                        if (tier2 || (tier3 && (currentPosition % 2 == 1)))
                         {
                             GetComponent<MovingEye>().enabled = true;
                             GetComponent<MovingEye>().SetStart();
@@ -110,13 +118,15 @@ public class BossAI : MonoBehaviour {
                 }
                 if (attackTimer > 1)
                 {
-                    if((teir2||teir3) && (secondAttack == false))
+                    //RESET FOR NEXT ATTACK
+                    if ((tier2||tier3) && (secondAttack == false))
                     {
                         delayTimer = 0;
                         attackTimer = 0;
                         secondAttack = true;
                         startPosSet = false;
                     }
+                    //RESET AND BEGIN MOVING
                     else
                     {
                         if (attacking)
@@ -130,9 +140,11 @@ public class BossAI : MonoBehaviour {
             }
             else
             {
+                //CALCULATE PLAYER'S POS
                 delayTimer += Time.deltaTime;
                 if(attacking)
                 {
+                    Debug.Log("BAD");
                     middle = player.transform.position;
                     float distance = Vector3.Distance(start, middle);
                     if (distance != 0)
@@ -150,6 +162,84 @@ public class BossAI : MonoBehaviour {
         }
         else
         {
+            //NOT MOVING
+
+            if (tier3)
+            {
+                light1 = player.GetComponent<PlayerController>().GetLight1();
+                light2 = player.GetComponent<PlayerController>().GetLight2();
+
+                if (currentPosition % 2 == 0)
+                {
+                    //NOT BURNED
+                    if(!burn)
+                    {
+                        if (light1 != null)
+                        {
+                            if ((light1.transform.position.x < (transform.position.x + 6) &&
+                                light1.transform.position.x > (transform.position.x - 6) &&
+                                light1.transform.position.y < (transform.position.y + 6) &&
+                                light1.transform.position.y > (transform.position.y - 6)))
+                            {
+                                burn = true;
+                                middle = transform.position;
+                                Flee();
+
+                                float distance = Vector3.Distance(middle, finish);
+                                if (distance != 0)
+                                {
+                                    speedActual = speed / distance;
+                                }
+                            }
+                        }
+
+
+                        if (light2 != null)
+                        {
+                            if ((light2.transform.position.x < (transform.position.x + 6) &&
+                                light2.transform.position.x > (transform.position.x - 6) &&
+                                light2.transform.position.y < (transform.position.y + 6) &&
+                                light2.transform.position.y > (transform.position.y - 6)))
+                            {
+                                burn = true;
+                                middle = transform.position;
+                                Flee();
+
+                                float distance = Vector3.Distance(middle, finish);
+                                if (distance != 0)
+                                {
+                                    speedActual = speed / distance;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //IS BURNED
+
+                    }
+                }
+
+                if(burnMoving)
+                {
+                    Debug.Log("BurnMoving");
+                    transform.position = Vector3.Lerp(start, finish, moveTimer);
+                    moveTimer += Time.deltaTime * speedActual;
+                    if (moveTimer > 1)
+                    {
+                        moveTimer = 0;
+                        burnMoving = false;
+
+                        if (currentPosition % 2 == 1)
+                        {
+                            GetComponent<MovingEye>().enabled = true;
+                            GetComponent<MovingEye>().SetStart();
+                        }
+                    }
+                }
+            }
+
+            //IDLE ANIMATIONS
             if (newAnimation)
             {
                 _animator.setAnimation(anim);
@@ -171,6 +261,13 @@ public class BossAI : MonoBehaviour {
 
     public void Move ()
     {
+        Flee();
+        _animator.setAnimation("Angry");
+        attacking = true;
+    }
+
+    public void Flee ()
+    {
         GetComponent<MovingEye>().enabled = false;
         if (currentPosition != maxPositions)
         {
@@ -181,9 +278,8 @@ public class BossAI : MonoBehaviour {
             currentPosition = 0;
         }
         finish = destinations[currentPosition];
-        _animator.setAnimation("Angry");
+        _animator.setAnimation("Moving");
         moving = true;
-        attacking = true;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -196,6 +292,7 @@ public class BossAI : MonoBehaviour {
                     && (col.transform.position.x < transform.position.x + 2) && (col.transform.position.x > transform.position.x - 2))
                 {
                     boss.GetComponent<BossHealth>().TakeDamage();
+                    boss.GetComponent<TentacleActivate>().AttackPlayer(tier2, tier3);
                     Move();
                 }
             }
@@ -208,9 +305,9 @@ public class BossAI : MonoBehaviour {
                     && (col.transform.position.x < transform.position.x + 2) && (col.transform.position.x > transform.position.x - 2))
                 {
                     boss.GetComponent<BossHealth>().TakeDamage();
+                    DestroyObject(col.gameObject);
                 }
             }
-            DestroyObject(col.gameObject);
         }
     }
 

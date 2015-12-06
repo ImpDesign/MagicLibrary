@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Boss\BossAI.cs" />
+     <Compile Include="Assets\Scripts\Boss\BossController.cs" />
      <Compile Include="Assets\Scripts\Boss\BossHealth.cs" />
      <Compile Include="Assets\Scripts\Boss\RandomAnimation.cs" />
      <Compile Include="Assets\Scripts\Boss\TentacleAI.cs" />

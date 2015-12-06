@@ -9,6 +9,7 @@ public class TentacleAI : MonoBehaviour {
     public float speed = 0.3f;
     public float injuredSpeed = 1f;
     public ParticleSystem particlePrefab;
+    public bool isTemp = false;
 
     private bool isAlive = false;
     private bool injured = false;
@@ -28,24 +29,25 @@ public class TentacleAI : MonoBehaviour {
     private Vector3 injuredPos;
     private Vector3 startPos;
     private Vector3 currentPos;
+    private Vector3 customPos;
     private ParticleSystem particles;
+    private Color color;
 
 	void Awake ()
     {
+        customPos = transform.position;
         originalPos = transform.position;
-        particles = Instantiate(particlePrefab) as ParticleSystem;
-        particles.transform.position = new Vector3(transform.position.x, (transform.position.y-9f), transform.position.z);
         startPos = new Vector3(transform.position.x, (transform.position.y - 9f), transform.position.z);
         injuredPos = new Vector3(transform.position.x, (transform.position.y - 4f), transform.position.z);
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<PolygonCollider2D>().enabled = false;
-        particles.enableEmission = false;
         transform.position = startPos;
     }
 	
 	void Update ()
     {
-	    if(appearing)
+        //particles.transform.rotation = new Quaternion(-90f, 0, 0, 0);
+        if (appearing)
         {
             delayTimer += Time.deltaTime * speed;
             transform.position = Vector3.Lerp(startPos, originalPos, delayTimer);
@@ -180,8 +182,11 @@ public class TentacleAI : MonoBehaviour {
     public void Appear()
     {
         isAlive = true;
-        particles.enableEmission = true;
-        particles.transform.rotation = new Quaternion(-90f, 0, 0, 0);
+        particles = Instantiate(particlePrefab, new Vector3(customPos.x, (customPos.y - 9f), customPos.z), new Quaternion(-90f, 0, 0, 0)) as ParticleSystem;
+        if(isTemp)
+        {
+            ChangeParticleSpeed();
+        }
         StopAllCoroutines();
         StartCoroutine(FadeInSequence());
     }
@@ -191,6 +196,27 @@ public class TentacleAI : MonoBehaviour {
         disappearing = true;
         startDisappearing = true;
         isAlive = false;
+    }
+
+    public void Custom(Vector3 newPos, float newAttackSpeed, float newParticleDelay)
+    {
+        customPos = newPos;
+        originalPos = newPos;
+        startPos = new Vector3(newPos.x, (newPos.y - 9f), newPos.z);
+        injuredPos = new Vector3(newPos.x, (newPos.y - 4f), newPos.z);
+        transform.position = startPos;
+        isTemp = true;
+        speed = newAttackSpeed;
+        particleDelay = newParticleDelay;
+    }
+
+    public void ChangeParticleSpeed()
+    {
+        particles.startSize = 2f;
+        particles.startSpeed = 8f;
+        particles.startLifetime = .75f;
+        particles.emissionRate = 1000;
+        particles.maxParticles = 3000;
     }
 
     IEnumerator FadeInSequence()
@@ -204,5 +230,11 @@ public class TentacleAI : MonoBehaviour {
     {
         yield return new WaitForSeconds(particleDelay);
         particles.enableEmission = false;
+        yield return new WaitForSeconds(particleDelay);
+        if(isTemp)
+        {
+            Destroy(particles.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }

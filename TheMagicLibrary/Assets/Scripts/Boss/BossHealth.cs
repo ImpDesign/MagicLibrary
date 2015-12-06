@@ -22,6 +22,5 @@ public class BossHealth : MonoBehaviour {
     public void TakeDamage()
     {
         currentHealth = -damage;
-        GetComponent<TentacleActivate>().AttackPlayer();
     }
 }

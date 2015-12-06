@@ -6,6 +6,8 @@ public class TentacleActivate : MonoBehaviour {
     public GameObject tentaclePrefab;
     public float tentacleDelay;
     public float attackDelay;
+    public float attackSpeed;
+    public float particleDelay;
 
     private GameObject player;
     private Vector3 spawnPos;
@@ -23,27 +25,37 @@ public class TentacleActivate : MonoBehaviour {
         }
     }
 
-    public void AttackPlayer()
+    public void AttackPlayer(bool tier2, bool tier3)
     {
-        StopAllCoroutines();
-        StartCoroutine(AttackSequence());
+        if(tier2)
+        {
+            StopAllCoroutines();
+            StartCoroutine(AttackSequence2(6));
+        }
+        else if (tier3)
+        {
+            StopAllCoroutines();
+            StartCoroutine(AttackSequence3(6));
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(AttackSequence1(4));
+        }
     }
 
     public void AttackCenter()
     {
-        Debug.Log("AttackCenter");
-        Debug.Log("Player x:" + player.transform.position.x + " Player y: " + player.transform.position.y);
         var tentacle = Instantiate(tentaclePrefab) as GameObject;
-        tentacle.transform.position = player.transform.position;
+        spawnPos = new Vector3((player.transform.position.x), (player.transform.position.y + 1f), 0);
+        tentacle.GetComponent<TentacleAI>().Custom(spawnPos, attackSpeed, particleDelay);
         StartCoroutine(TentacleSequence(tentacle));
     }
     public void AttackAhead()
     {
-        Debug.Log("AttackAhead");
-        Debug.Log("Player x:" + player.transform.position.x + " Player y: " + player.transform.position.y);
         var tentacle = Instantiate(tentaclePrefab) as GameObject;
-        spawnPos = new Vector3((player.transform.position.x+10), (player.transform.position.y-2f), 0);
-        tentacle.transform.position = spawnPos;
+        spawnPos = new Vector3((player.transform.position.x+(10*player.GetComponent<PlayerController>().GetDirection())), (player.transform.position.y + 1f), 0);
+        tentacle.GetComponent<TentacleAI>().Custom(spawnPos, attackSpeed, particleDelay);
         StartCoroutine(TentacleSequence(tentacle));
     }
 
@@ -54,14 +66,33 @@ public class TentacleActivate : MonoBehaviour {
         tentacle.GetComponent<TentacleAI>().Disappear();
     }
 
-    IEnumerator AttackSequence()
+    IEnumerator AttackSequence3(float eyeDelay)
     {
+        yield return new WaitForSeconds(eyeDelay);
         AttackCenter();
         yield return new WaitForSeconds(attackDelay);
         AttackCenter();
         yield return new WaitForSeconds(attackDelay);
         AttackAhead();
         yield return new WaitForSeconds(attackDelay);
+        AttackCenter();
+        yield return new WaitForSeconds(attackDelay);
+        AttackCenter();
+        yield return new WaitForSeconds(attackDelay);
+        AttackAhead();
+    }
+
+    IEnumerator AttackSequence1(float eyeDelay)
+    {
+        yield return new WaitForSeconds(eyeDelay);
+        AttackCenter();
+        yield return new WaitForSeconds(attackDelay);
+        AttackCenter();
+    }
+
+    IEnumerator AttackSequence2(float eyeDelay)
+    {
+        yield return new WaitForSeconds(eyeDelay);
         AttackCenter();
         yield return new WaitForSeconds(attackDelay);
         AttackCenter();
