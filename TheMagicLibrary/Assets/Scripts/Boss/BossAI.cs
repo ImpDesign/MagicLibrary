@@ -17,6 +17,7 @@ public class BossAI : MonoBehaviour {
     private GameObject boss;
     private GameObject light1;
     private GameObject light2;
+    private GameObject burningLight;
     private bool moving = false;
     private bool newAnimation = false;
     private bool attacking = false;
@@ -169,71 +170,64 @@ public class BossAI : MonoBehaviour {
                 light1 = player.GetComponent<PlayerController>().GetLight1();
                 light2 = player.GetComponent<PlayerController>().GetLight2();
 
-                if (currentPosition % 2 == 0)
+                //NOT BURNED
+                if (!burn)
                 {
-                    //NOT BURNED
-                    if(!burn)
+                    if (light1 != null)
                     {
-                        if (light1 != null)
+                        if ((light1.transform.position.x < (transform.position.x + 6) &&
+                            light1.transform.position.x > (transform.position.x - 6) &&
+                            light1.transform.position.y < (transform.position.y + 6) &&
+                            light1.transform.position.y > (transform.position.y - 6)))
                         {
-                            if ((light1.transform.position.x < (transform.position.x + 6) &&
-                                light1.transform.position.x > (transform.position.x - 6) &&
-                                light1.transform.position.y < (transform.position.y + 6) &&
-                                light1.transform.position.y > (transform.position.y - 6)))
+                            burn = true;
+                            burningLight = light1;
+                            middle = transform.position;
+                            Flee();
+
+                            float distance = Vector3.Distance(middle, finish);
+                            if (distance != 0)
                             {
-                                burn = true;
-                                middle = transform.position;
-                                Flee();
-
-                                float distance = Vector3.Distance(middle, finish);
-                                if (distance != 0)
-                                {
-                                    speedActual = speed / distance;
-                                }
-                            }
-                        }
-
-
-                        if (light2 != null)
-                        {
-                            if ((light2.transform.position.x < (transform.position.x + 6) &&
-                                light2.transform.position.x > (transform.position.x - 6) &&
-                                light2.transform.position.y < (transform.position.y + 6) &&
-                                light2.transform.position.y > (transform.position.y - 6)))
-                            {
-                                burn = true;
-                                middle = transform.position;
-                                Flee();
-
-                                float distance = Vector3.Distance(middle, finish);
-                                if (distance != 0)
-                                {
-                                    speedActual = speed / distance;
-                                }
+                                speedActual = speed / distance;
                             }
                         }
                     }
-                    else
-                    {
-                        //IS BURNED
 
+
+                    if (light2 != null)
+                    {
+                        if ((light2.transform.position.x < (transform.position.x + 6) &&
+                            light2.transform.position.x > (transform.position.x - 6) &&
+                            light2.transform.position.y < (transform.position.y + 6) &&
+                            light2.transform.position.y > (transform.position.y - 6)))
+                        {
+                            burn = true;
+                            burningLight = light2;
+                            middle = transform.position;
+                            Flee();
+
+                            float distance = Vector3.Distance(middle, finish);
+                            if (distance != 0)
+                            {
+                                speedActual = speed / distance;
+                            }
+                        }
                     }
                 }
-
-                if(burnMoving)
+                else
                 {
-                    Debug.Log("BurnMoving");
-                    transform.position = Vector3.Lerp(start, finish, moveTimer);
-                    moveTimer += Time.deltaTime * speedActual;
-                    if (moveTimer > 1)
+                    //IS BURNED
+                    if (burningLight != light1 && burningLight != light2)
                     {
-                        moveTimer = 0;
-                        burnMoving = false;
+                        //IF LIGHT GOES AWAY
+                        burn = false;
+                        middle = transform.position;
+                        GoBack();
 
-                        if (currentPosition % 2 == 1)
+                        float distance = Vector3.Distance(middle, finish);
+                        if (distance != 0)
                         {
-                            GetComponent<MovingEye>().enabled = true;
-                            GetComponent<MovingEye>().SetStart();
+                            speedActual = speed / distance;
                         }
                     }
                 }
@@ -276,6 +270,22 @@ public class BossAI : MonoBehaviour {
         else
         {
             currentPosition = 0;
+        }
+        finish = destinations[currentPosition];
+        _animator.setAnimation("Moving");
+        moving = true;
+    }
+
+    public void GoBack()
+    {
+        GetComponent<MovingEye>().enabled = false;
+        if (currentPosition != 0)
+        {
+            currentPosition--;
+        }
+        else
+        {
+            currentPosition = maxPositions;
         }
         finish = destinations[currentPosition];
         _animator.setAnimation("Moving");
