@@ -46,14 +46,20 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\BackgroundMovement.cs" />
-     <Compile Include="Assets\Scripts\BossAI.cs" />
-     <Compile Include="Assets\Scripts\BossHealth.cs" />
+     <Compile Include="Assets\Scripts\Boss\BossAI.cs" />
+     <Compile Include="Assets\Scripts\Boss\BossController.cs" />
+     <Compile Include="Assets\Scripts\Boss\BossHealth.cs" />
+     <Compile Include="Assets\Scripts\Boss\RandomAnimation.cs" />
+     <Compile Include="Assets\Scripts\Boss\TentacleAI.cs" />
+     <Compile Include="Assets\Scripts\Boss\TentacleActivate.cs" />
+     <Compile Include="Assets\Scripts\BossKill.cs" />
      <Compile Include="Assets\Scripts\Entities\BookMover.cs" />
      <Compile Include="Assets\Scripts\Entities\CameraFollow2D.cs" />
      <Compile Include="Assets\Scripts\Entities\CircleBook.cs" />
+     <Compile Include="Assets\Scripts\Entities\Flicker.cs" />
      <Compile Include="Assets\Scripts\Entities\FlyingBook.cs" />
      <Compile Include="Assets\Scripts\Entities\MoveProjectile.cs" />
+     <Compile Include="Assets\Scripts\Entities\MovingEye.cs" />
      <Compile Include="Assets\Scripts\Entities\QueenSpiderAI.cs" />
      <Compile Include="Assets\Scripts\Entities\Regrow.cs" />
      <Compile Include="Assets\Scripts\Entities\ShootBolt.cs" />
@@ -61,9 +67,7 @@
      <Compile Include="Assets\Scripts\Entities\SpinWeb.cs" />
      <Compile Include="Assets\Scripts\Entities\StrikerSpiderAI.cs" />
      <Compile Include="Assets\Scripts\Entities\TimerSpiderAI.cs" />
-     <Compile Include="Assets\Scripts\Flicker.cs" />
-     <Compile Include="Assets\Scripts\FogController.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\FlipSprite.cs" />
      <Compile Include="Assets\Scripts\Gizmos\AppearingCollapsingPlatform.cs" />
      <Compile Include="Assets\Scripts\Gizmos\AppearingDamagingPlatform.cs" />
      <Compile Include="Assets\Scripts\Gizmos\AppearingMovingPlatform.cs" />
@@ -88,7 +92,7 @@
      <Compile Include="Assets\Scripts\Gizmos\InvisibleTravelingPlatform.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickMovingPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickPlatformGizmo.cs" />
-     <Compile Include="Assets\Scripts\MenuGuide.cs" />
+     <Compile Include="Assets\Scripts\NewSpell.cs" />
      <Compile Include="Assets\Scripts\Platform\AdvancedSwitchPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\AppearingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\ColapsingPlatform.cs" />
@@ -100,11 +104,16 @@
      <Compile Include="Assets\Scripts\Platform\VanishingDoor.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationController2D.cs" />
      <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
+     <Compile Include="Assets\Scripts\Player\FollowPlayer.cs" />
      <Compile Include="Assets\Scripts\Player\LightScript.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\WeaponScript.cs" />
-     <Compile Include="Assets\Scripts\TutorialBook.cs" />
-     <Compile Include="Assets\Scripts\TutorialScript.cs" />
+     <Compile Include="Assets\Scripts\UI\BackgroundMovement.cs" />
+     <Compile Include="Assets\Scripts\UI\FogController.cs" />
+     <Compile Include="Assets\Scripts\UI\GameManager.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuGuide.cs" />
+     <Compile Include="Assets\Scripts\UI\TutorialBook.cs" />
+     <Compile Include="Assets\Scripts\UI\TutorialScript.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
