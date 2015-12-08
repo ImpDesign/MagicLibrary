@@ -86,15 +86,11 @@ public class TentacleActivate : MonoBehaviour {
     {
         yield return new WaitForSeconds(eyeDelay);
         AttackCenter();
-        yield return new WaitForSeconds(attackDelay);
-        AttackCenter();
     }
 
     IEnumerator AttackSequence2(float eyeDelay)
     {
         yield return new WaitForSeconds(eyeDelay);
-        AttackCenter();
-        yield return new WaitForSeconds(attackDelay);
         AttackCenter();
         yield return new WaitForSeconds(attackDelay);
         AttackAhead();

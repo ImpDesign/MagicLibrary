@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Boss\RandomAnimation.cs" />
      <Compile Include="Assets\Scripts\Boss\TentacleAI.cs" />
      <Compile Include="Assets\Scripts\Boss\TentacleActivate.cs" />
+     <Compile Include="Assets\Scripts\BossKill.cs" />
      <Compile Include="Assets\Scripts\Entities\BookMover.cs" />
      <Compile Include="Assets\Scripts\Entities\CameraFollow2D.cs" />
      <Compile Include="Assets\Scripts\Entities\CircleBook.cs" />
@@ -65,6 +66,7 @@
      <Compile Include="Assets\Scripts\Entities\SpinWeb.cs" />
      <Compile Include="Assets\Scripts\Entities\StrikerSpiderAI.cs" />
      <Compile Include="Assets\Scripts\Entities\TimerSpiderAI.cs" />
+     <Compile Include="Assets\Scripts\FlipSprite.cs" />
      <Compile Include="Assets\Scripts\Gizmos\AppearingCollapsingPlatform.cs" />
      <Compile Include="Assets\Scripts\Gizmos\AppearingDamagingPlatform.cs" />
      <Compile Include="Assets\Scripts\Gizmos\AppearingMovingPlatform.cs" />
@@ -89,6 +91,7 @@
      <Compile Include="Assets\Scripts\Gizmos\InvisibleTravelingPlatform.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickMovingPlatformGizmo.cs" />
      <Compile Include="Assets\Scripts\Gizmos\TrickPlatformGizmo.cs" />
+     <Compile Include="Assets\Scripts\NewSpell.cs" />
      <Compile Include="Assets\Scripts\Platform\AdvancedSwitchPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\AppearingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform\ColapsingPlatform.cs" />

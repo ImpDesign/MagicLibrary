@@ -1,21 +1,21 @@
 fileFormatVersion: 2
 guid: c1523d32c799a7449b8b1c84af1baaf0
-timeCreated: 1447810981
+timeCreated: 1449541967
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Skull and damage bookshelf_0
-    21300002: Skull and damage bookshelf_1
-    21300004: Skull and damage bookshelf_2
-    21300006: Skull and damage bookshelf_3
+    21300002: _Broken
+    21300004: _Empty
+    21300006: _Mossy
     21300008: Skull and damage bookshelf_4
     21300010: Skull and damage bookshelf_5
     21300012: Skull and damage bookshelf_6
-    21300014: Skull and damage bookshelf_7
-    21300016: Skull and damage bookshelf_8
+    21300014: _Webbed
+    21300016: _Broken2
     21300018: Skull and damage bookshelf_9
-    21300020: Skull and damage bookshelf_10
-    21300022: Skull and damage bookshelf_11
+    21300020: _Full_2
+    21300022: _Full1
     21300024: Skull and damage bookshelf_12
     21300026: Skull and damage bookshelf_13
     21300028: Skull and damage bookshelf_14
@@ -43,7 +43,7 @@ TextureImporter:
     21300072: Skull and damage bookshelf_36
     21300074: Skull and damage bookshelf_37
     21300076: Skull and damage bookshelf_38
-    21300078: Skull and damage bookshelf_39
+    21300078: _Skull2
     21300080: Skull and damage bookshelf_40
     21300082: Skull and damage bookshelf_41
     21300084: Skull and damage bookshelf_42
@@ -68,7 +68,7 @@ TextureImporter:
     21300122: Skull and damage bookshelf_61
     21300124: Skull and damage bookshelf_62
     21300126: Skull and damage bookshelf_63
-    21300128: Skull and damage bookshelf_1X1
+    21300128: _Skull
     21300130: Poisonbookshelf_1x1
   serializedVersion: 2
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Skull and damage bookshelf_1
+    - name: _Broken
       rect:
         serializedVersion: 2
         x: 256
@@ -136,7 +136,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Skull and damage bookshelf_2
+    - name: _Empty
       rect:
         serializedVersion: 2
         x: 512
@@ -146,7 +146,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Skull and damage bookshelf_3
+    - name: _Mossy
       rect:
         serializedVersion: 2
         x: 768
@@ -186,7 +186,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Skull and damage bookshelf_7
+    - name: _Webbed
       rect:
         serializedVersion: 2
         x: 1792
@@ -196,7 +196,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Skull and damage bookshelf_8
+    - name: _Broken2
       rect:
         serializedVersion: 2
         x: 0
@@ -216,7 +216,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Skull and damage bookshelf_10
+    - name: _Full_2
       rect:
         serializedVersion: 2
         x: 512
@@ -226,7 +226,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Skull and damage bookshelf_11
+    - name: _Full1
       rect:
         serializedVersion: 2
         x: 768
@@ -506,7 +506,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Skull and damage bookshelf_39
+    - name: _Skull2
       rect:
         serializedVersion: 2
         x: 1792
@@ -756,7 +756,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Skull and damage bookshelf_1X1
+    - name: _Skull
       rect:
         serializedVersion: 2
         x: 0

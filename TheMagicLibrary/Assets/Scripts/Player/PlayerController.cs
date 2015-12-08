@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour {
     public GameObject trickPlatformList;
     public GameObject deathBlur;
 	public GameObject healthbar;
+    public ParticleSystem particlePrefab;
 	Vector3 velocity = Vector3.zero;
 	public float speed = 5;
 	public float gravity = -1;
 	public float spring = 100;
     public float poisonRate = 2f;
     public float nightvisionRate = 20f;
+    public float doubleJumpDelay = .25f;
 	public int health = 100;
     public int poisonDamage = 1;
     public int spiderDamage = 25;
@@ -27,7 +29,6 @@ public class PlayerController : MonoBehaviour {
     public bool lightSpell = false;
     public bool canTeleport = true;
     public bool isTeleporting = false;
-    public bool isBossLevel = false;
 
     private CharacterController2D _controller;
 	private AnimationController2D _animator;
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour {
     private float pushBackTime = 0;
     private float poisonTimer = 0;
     private float nightvisionTimer = 0;
-    //private float walkingTimer = 0;
+    private float jumpTimer = 0;
     private int direction = 1;
     private bool isAlive = true;
     private bool isPoisoned = false;
@@ -74,8 +75,10 @@ public class PlayerController : MonoBehaviour {
         //Get the last velocity the player had
 		velocity =  _controller.velocity;
 
+        jumpTimer += Time.deltaTime;
+
         //Moving platform exception
-            if (_controller.isGrounded && (_controller.ground != null) && (_controller.ground.tag == "MovingPlatform"))
+        if (_controller.isGrounded && (_controller.ground != null) && (_controller.ground.tag == "MovingPlatform"))
         {
             
 			this.transform.parent = _controller.ground.transform;
@@ -123,6 +126,7 @@ public class PlayerController : MonoBehaviour {
                 if(isTeleporting)
                 {
                     isAlive = false;
+                    _animator.setAnimation("Idle");
                 }
                 else
                 {
@@ -184,15 +188,17 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
             //When jumping
-			if (Input.GetKeyDown(KeyCode.Space) && (canJump||canDoubleJump))
+			if (Input.GetKeyDown(KeyCode.Space) && (canJump||canDoubleJump) && (jumpTimer > doubleJumpDelay))
             {
 				velocity.y = Mathf.Sqrt (2f * spring * -gravity);
+                jumpTimer = 0;
 				_animator.setAnimation ("Jump4");
 
-                if(!_controller.isGrounded)
+                if(!canJump)
                 {
                     canDoubleJump = false;
-                    _animator.setAnimation("Jump5");
+                    var temp = Instantiate(particlePrefab, transform.position, new Quaternion(-90f, 0, 0, 0)) as ParticleSystem;
+                    Destroy(temp.gameObject, 1.0f);
                 }
                 canJump = false;
                 canReveal = false;
@@ -344,7 +350,6 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("OnTriggerEnter2D");
         if (col.tag == "KillZ")
         {
 
@@ -379,6 +384,7 @@ public class PlayerController : MonoBehaviour {
             PlayerDamage(spiderDamage);
             isPoisoned = true;
             damageByBoss = false;
+            healthbar.GetComponent<Image>().color = Color.green;
         }
         else if (col.tag == "Health")
         {
@@ -395,7 +401,6 @@ public class PlayerController : MonoBehaviour {
             isAlive = false;
             endingCollider = col;
             startNextLevel = true;
-            Debug.Log("StartNextLevel");
             StopAllCoroutines();
             StartCoroutine(LoadNextLevel());
         }
@@ -410,6 +415,14 @@ public class PlayerController : MonoBehaviour {
             pushBackTime = .25f;
             PlayerDamage(10);
             damageByBoss = false;
+        }
+        else if (col.tag == "NewSpell")
+        {
+            currentHealth = health;
+            healthbar.GetComponent<RectTransform>().anchorMax = new Vector2(.66f, .15f);
+            isPoisoned = false;
+            healthbar.GetComponent<Image>().color = Color.white;
+
         }
     }
 

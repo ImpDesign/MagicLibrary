@@ -145,7 +145,6 @@ public class BossAI : MonoBehaviour {
                 delayTimer += Time.deltaTime;
                 if(attacking)
                 {
-                    Debug.Log("BAD");
                     middle = player.transform.position;
                     float distance = Vector3.Distance(start, middle);
                     if (distance != 0)

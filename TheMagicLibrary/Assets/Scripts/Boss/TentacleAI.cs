@@ -42,6 +42,11 @@ public class TentacleAI : MonoBehaviour {
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<PolygonCollider2D>().enabled = false;
         transform.position = startPos;
+
+        if(!isTemp)
+        {
+            Appear();
+        }
     }
 	
 	void Update ()
