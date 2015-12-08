@@ -10,6 +10,7 @@ public class BossController : MonoBehaviour {
     public bool frontPlayer;
 
     private TentacleActivate activate;
+    private BossHealth health;
     private float delayTimer;
     private float attackType;
     private bool off;
@@ -19,6 +20,7 @@ public class BossController : MonoBehaviour {
 	void Start ()
     {
         activate = GetComponent<TentacleActivate>();
+        health = GetComponent<BossHealth>();
         delayTimer = 0;
         attackDelay = Random.Range(attackDelayMin, attackDelayMax);
         if(!underPlayer && !frontPlayer)
@@ -33,7 +35,7 @@ public class BossController : MonoBehaviour {
 
 	void Update ()
     {
-        if(!off)
+        if(!off && !health.IsDead())
         {
             delayTimer += Time.deltaTime;
             if (delayTimer > attackDelay)

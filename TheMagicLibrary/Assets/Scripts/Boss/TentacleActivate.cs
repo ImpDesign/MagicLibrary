@@ -29,17 +29,17 @@ public class TentacleActivate : MonoBehaviour {
     {
         if(tier2)
         {
-            StopAllCoroutines();
+            //StopAllCoroutines();
             StartCoroutine(AttackSequence2(6));
         }
         else if (tier3)
         {
-            StopAllCoroutines();
+            //StopAllCoroutines();
             StartCoroutine(AttackSequence3(6));
         }
         else
         {
-            StopAllCoroutines();
+            //StopAllCoroutines();
             StartCoroutine(AttackSequence1(4));
         }
     }

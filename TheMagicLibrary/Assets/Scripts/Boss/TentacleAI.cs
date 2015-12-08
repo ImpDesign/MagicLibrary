@@ -51,7 +51,6 @@ public class TentacleAI : MonoBehaviour {
 	
 	void Update ()
     {
-        //particles.transform.rotation = new Quaternion(-90f, 0, 0, 0);
         if (appearing)
         {
             delayTimer += Time.deltaTime * speed;
