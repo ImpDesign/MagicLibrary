@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour {
     private int oldLight = 2;
     private Collider2D endingCollider = null;
     private Vector3 endingPosition = Vector3.zero;
+    private AudioSource music;
 
     void Start () {
 
@@ -61,7 +62,8 @@ public class PlayerController : MonoBehaviour {
 		currentHealth = health;
         cameraDerp = true;
         StartCoroutine("FadeInSequence");
-	}
+        music = GameObject.Find("GameManager").GetComponent<AudioSource>();
+    }
 	
 	void Update () {
 
@@ -311,6 +313,10 @@ public class PlayerController : MonoBehaviour {
             endingPosition = endingCollider.transform.position;
             endingPosition.y = gameObject.transform.position.y;
         }
+        if(startNextLevel)
+        {
+            music.volume -= Time.deltaTime / 3;
+        }
         if (startNextLevel && gameObject.transform.position.x < endingPosition.x)
         {
             velocity.x += 3;
@@ -503,6 +509,7 @@ public class PlayerController : MonoBehaviour {
         {
             deathBlur.GetComponent<Image>().color = color;
             color.a -= Time.deltaTime;
+            //music.volume -= Time.deltaTime / 255;
             yield return null;
         }
     }
