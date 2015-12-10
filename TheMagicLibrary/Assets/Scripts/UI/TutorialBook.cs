@@ -39,6 +39,21 @@ public class TutorialBook : MonoBehaviour
 
     }
 
+    void Update ()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if (resumeButton.active)
+            {
+                Resume();
+            }
+            if (nextButton.active)
+            {
+                NextPage();
+            }
+        }
+    }
+
     public void Close()
     {
         bookPages[currentpage].SetActive(false);
