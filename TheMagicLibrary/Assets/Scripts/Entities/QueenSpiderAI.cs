@@ -57,6 +57,7 @@ public class QueenSpiderAI : MonoBehaviour {
                  light1.transform.position.y < startPosition.y &&
                  light1.transform.position.y > (startPosition.y - range.y))
             {
+                Debug.Log("Burn");
                 burn1 = true;
             }
             else
@@ -71,6 +72,7 @@ public class QueenSpiderAI : MonoBehaviour {
                 light2.transform.position.y < startPosition.y &&
                 light2.transform.position.y > (startPosition.y - range.y))
             {
+                Debug.Log("Burn");
                 burn2 = true;
             }
             else

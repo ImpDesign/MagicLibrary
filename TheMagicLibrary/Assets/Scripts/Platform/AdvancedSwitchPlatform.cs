@@ -85,13 +85,13 @@ public class AdvancedSwitchPlatform : MonoBehaviour {
             {
                 player.GetComponent<PlayerController>().gameCamera.GetComponent<CameraFollow2D>().setTarget(door.gameObject);
                 door.active = true;
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(2f);
             }
             foreach (AppearingPlatform platform in fadeInList.GetComponentsInChildren<AppearingPlatform>())
             {
                 player.GetComponent<PlayerController>().gameCamera.GetComponent<CameraFollow2D>().setTarget(platform.gameObject);
                 platform.active = true;
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(2f);
             }
             loopBack = true;
             yield return null;

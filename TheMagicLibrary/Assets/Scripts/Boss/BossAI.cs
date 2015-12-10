@@ -25,6 +25,7 @@ public class BossAI : MonoBehaviour {
     private bool startPosSet = false;
     private bool burn = false;
     private bool burnMoving = false;
+    private bool resetCamera = false;
     private float speedActual;
     private float strikeSpeedActual;
     private float moveTimer = 0;
@@ -114,6 +115,12 @@ public class BossAI : MonoBehaviour {
                         {
                             GetComponent<MovingEye>().enabled = true;
                             GetComponent<MovingEye>().SetStart();
+                            if(resetCamera)
+                            {
+                                StopAllCoroutines();
+                                StartCoroutine(Unfollow());
+                                resetCamera = false;
+                            }
                         }
                     }
                 }
@@ -189,6 +196,7 @@ public class BossAI : MonoBehaviour {
                             {
                                 speedActual = speed / distance;
                             }
+                            Follow();
                         }
                     }
 
@@ -210,12 +218,14 @@ public class BossAI : MonoBehaviour {
                             {
                                 speedActual = speed / distance;
                             }
+                            Follow();
                         }
                     }
                 }
                 else
                 {
                     //IS BURNED
+                    /*
                     if (burningLight != light1 && burningLight != light2)
                     {
                         //IF LIGHT GOES AWAY
@@ -229,6 +239,7 @@ public class BossAI : MonoBehaviour {
                             speedActual = speed / distance;
                         }
                     }
+                    */
                 }
             }
 
@@ -273,6 +284,13 @@ public class BossAI : MonoBehaviour {
         finish = destinations[currentPosition];
         _animator.setAnimation("Moving");
         moving = true;
+    }
+
+    public void Follow ()
+    {
+        player.GetComponent<PlayerController>().SetIsAlive(false);
+        player.GetComponent<PlayerController>().gameCamera.GetComponent<CameraFollow2D>().setTarget(gameObject);
+        resetCamera = true;
     }
 
     public void GoBack()
@@ -320,5 +338,12 @@ public class BossAI : MonoBehaviour {
         }
     }
 
-
+    IEnumerator Unfollow ()
+    {
+        yield return new WaitForSeconds(3);
+        player.GetComponent<PlayerController>().SetIsAlive(true);
+        player.GetComponent<PlayerController>().gameCamera.GetComponent<CameraFollow2D>().setTarget(player);
     }
+
+
+}
