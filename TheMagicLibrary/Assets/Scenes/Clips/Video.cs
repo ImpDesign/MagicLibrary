@@ -7,16 +7,18 @@ public class Video : MonoBehaviour {
 
     public MovieTexture movie;
 
+
 	void Start ()
     {
         GetComponent<Renderer>().material.mainTexture = movie as MovieTexture;
-        //GetComponent<AudioSource>() = movie.audioClip;
-        movie.Play();
-        GetComponent<AudioSource>().Play();
+		movie.Play();
+		StartCoroutine (Logic (movie));
 	}
 
-	void Update ()
-    {
-	
+	IEnumerator Logic(MovieTexture movie)
+	{
+		yield return new WaitForSeconds (movie.duration);
+		Application.LoadLevel(Application.loadedLevel+1);
+		
 	}
 }
