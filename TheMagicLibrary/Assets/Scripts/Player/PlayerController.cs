@@ -520,7 +520,7 @@ public class PlayerController : MonoBehaviour {
         Application.LoadLevel(Application.loadedLevel);
     }
 
-    IEnumerator LoadNextLevel()
+    public IEnumerator LoadNextLevel()
     {
         yield return new WaitForSeconds(2);
         yield return null;

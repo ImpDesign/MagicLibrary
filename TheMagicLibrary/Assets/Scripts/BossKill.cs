@@ -6,6 +6,7 @@ public class BossKill : MonoBehaviour {
     public GameObject fadeOutList;
     public GameObject fadeInList;
     public bool active = false;
+    public bool endGame = false;
 
     private float speed = 2;
     private float timer = 0;
@@ -42,7 +43,11 @@ public class BossKill : MonoBehaviour {
 
     void Update()
     {
-        if (active && !isBlocked)
+        if(endGame && active)
+        {
+            StartCoroutine(player.GetComponent<PlayerController>().LoadNextLevel());
+        }
+        else if (active && !isBlocked)
         {
             player.GetComponent<PlayerController>().SetIsAlive(false);
             timer += Time.deltaTime * speed;
